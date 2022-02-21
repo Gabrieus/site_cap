@@ -1,0 +1,26 @@
+{% load static %}
+{% include 'css-js.html' %}
+
+    {% block titulo %}
+    <title>Deletar</title>
+    {% endblock %}
+
+    {% load crispy_forms_tags %}
+    {% block conteudo %}
+
+        <br><h3 class="h3 text-black-800">Excluir Foto</h3>
+        <b>Deseja excluir esta foto?</b><hr>
+        <b>Texto:</b> {{ object.titulo }}
+        <br><b>Legenda:</b> {{ object.legenda }}
+
+        <form method="POST">
+            {% csrf_token %}
+            {{ form | crispy }}
+            <div>
+                <br><button type="submit" class="save btn btn-danger">Confirmo exclusão</button>
+                <a href="{%  url 'listFotos' %}" class="btn btn-outline-secondary">Cancelar</a>
+            </div>
+        </form>
+
+
+    {% endblock %}

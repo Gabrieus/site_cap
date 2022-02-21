@@ -1,0 +1,73 @@
+{% load static %}
+{% include 'css-js.html' %}
+
+{% block titulo %}
+    <title>Lista de Fotos</title>
+{% endblock %}
+
+
+{% block conteudo %}
+
+    <br><h3 class="h3 text-black-800">Lista de Mensagens</h3>
+    <hr>
+
+    <table class="table table-striped ">
+        <thead>
+        <tr>
+            <th>Data</th>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Assunto</th>
+            <th>Mensagem</th>
+            <th>Excluir</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        {% for item in object_list %}
+
+            <tr>
+                <td>{{ item.data }}</td>
+                <td>{{ item.nome }}</td>
+                <td>{{ item.email }}</td>
+                <td>{{ item.assunto }}</td>
+                <td><!-- Botão -->
+                    <button type="button" class="btn btn-primary" data-toggle="modal"
+                            data-target="#mensagem_{{ item.pk }}">
+                        Ver texto
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="mensagem_{{ item.pk }}" tabindex="-1" aria-labelledby="texto_{{ item.pk }}"
+                         aria-hidden="true">
+                        <div class="modal-dialog modal-xl" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLongTitle"> Assunto: {{ item.assunto }}</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body" style="overflow-wrap: break-word">
+                                    {{ item.mensagem }}
+                                </div>
+                                <div class="modal-footer">
+                                    <a href="{% url 'contato_excluir' item.pk %}" class="btn btn-danger">Excluir</a>
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Ok</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div></td>
+                <td><a href="{% url 'contato_excluir' item.pk %}" class="btn btn-danger"><i class="fa fa-trash"></i></a></td>
+            </tr>
+
+        {% empty %}
+
+            Nada foi registrado<br><hr>
+
+        {% endfor %}
+
+        </tbody>
+    </table>
+
+{% endblock %}

@@ -1,0 +1,31 @@
+{% load static %}
+
+<link href="{% static '/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    {% block titulo %}
+        <title>Acesso Professores</title>
+    {% endblock %}
+
+{% block conteudo %}
+
+<div class="container">
+        <div class="text-center mt-5">
+        <img src="{% static '/img/logo_cap.jpg' %}" width="300px">
+        <h1>Acesso Restrito</h1>
+        </div>
+
+  <form action="http://app.ufac.br/alunos/public/logando", method="POST">
+      <div class="form-group">
+        <label for="email" style="margin-bottom: 10px">E-mail</label>
+        <input type="email" class="form-control" placeholder="Digite seu e-mail">
+      </div><br>
+      <div class="form-group">
+        <label for="pwd" style="margin-bottom: 10px">Senha</label>
+        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Digite sua senha">
+      </div><br>
+      <button type="submit" class="btn btn-primary">Logar</button>
+  </form>
+
+</div>
+
+{% endblock %}

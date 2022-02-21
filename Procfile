@@ -1,0 +1,1 @@
+web: gunicorn site_cap.wsgi --log-file -

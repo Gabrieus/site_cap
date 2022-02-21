@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% load static %}
+
+    {% block titulo %}
+        <title>Contato</title>
+    {% endblock %}
+
+{% block conteudo %}
+
+<!-- ======= Contato ======= -->
+    <section id="contact" class="contact">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Contatos</h2>
+          <h3><span>Nossos Contatos</span></h3>
+          <p>Aqui disponibilizamos várias formas para nos encontrar</p>
+        </div>
+
+        <div class="row" data-aos="fade-up" data-aos-delay="100">
+          <div class="col-lg-6">
+            <div class="info-box mb-4">
+              <i class="bx bx-map"></i>
+              <h3>Nosso endereço</h3>
+              <p>Endereço: Av. Getúlio Vargas, 654 - Centro, Rio Branco - AC, 69900-150</p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <div class="info-box  mb-4">
+              <i class="bx bx-envelope"></i>
+              <h3>E-mail</h3>
+              <p>cap@ufac.br</p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <div class="info-box  mb-4">
+              <i class="bx bx-phone-call"></i>
+              <h3>Telefone</h3>
+              <p>(68) 99971-3692</p>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="row" data-aos="fade-up" data-aos-delay="100">
+
+          <div class="col-lg-6 ">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15718.196648683606!2d-67.8106109!3d-9.9714163!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x589d3c359dec27ca!2zQ29sw6lnaW8gZGUgQXBsaWNhw6fDo28gZGEgVWZhYw!5e0!3m2!1spt-BR!2sbr!4v1644278509347!5m2!1spt-BR!2sbr" frameborder="0" style="border:0; width: 100%; height: 384px;" allowfullscreen></iframe>
+          </div>
+
+          <div class="col-lg-6">
+            <iframe class="embed-responsive-item" src="{% url 'form_contato' %}" allowfullscreen height="600px"
+                    width="100%"></iframe>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+<!-- Fim Contato -->
+{% endblock %}

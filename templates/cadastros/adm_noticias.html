@@ -1,0 +1,39 @@
+{% load static %}
+{% include 'css-js.html' %}
+
+    <!-- Template Main CSS File -->
+    <link href="{% static '/css/style.css' %}" rel="stylesheet">
+
+    {% block titulo %}
+    <title>Postagem de Notícias</title>
+    {% endblock %}
+
+
+    {% load crispy_forms_tags %}
+
+        {% block conteudo %}
+
+                {% if object.pk %}
+                <br><h3 class="h3 text-black-800">Editando Notícia</h3><hr>
+                {% else %}
+                <br><h3 class="h3 text-black-800">Postar Notícia</h3><hr>
+                {% endif %}
+
+                <form method="POST" action="" enctype="multipart/form-data" action="">
+                    {% csrf_token %}
+                    {{form | crispy}}
+                    <div class="text-right">
+
+                        {% if object.pk %}
+                        <button type="submit" class="save btn btn-warning">Salvar Edição</button>
+                        <a href="{%  url 'listNoticias' %}" class="btn btn-outline-secondary">Cancelar</a>
+                        {% else %}
+                        <button type="submit" class="save btn btn-success">Salvar Cadastro</button>
+                        {% endif %}
+
+                    </div>
+                </form>
+
+        {% endblock %}
+
+

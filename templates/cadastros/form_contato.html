@@ -1,0 +1,24 @@
+{% load static %}
+{% include 'css-js.html' %}
+
+    <!-- Template Main CSS File -->
+    <link href="{% static '/css/style.css' %}" rel="stylesheet">
+
+    {% block titulo %}
+    <title>Formulário de Contato</title>
+    {% endblock %}
+
+
+    {% load crispy_forms_tags %}
+
+        {% block conteudo %}
+
+                <form method="POST" action="" enctype="multipart/form-data" action="" style="background-color: #f8f9fc">
+                    {% csrf_token %}
+                    {{ form | crispy }}
+                    <div class="text-right">
+                        <button type="submit" class="save btn btn-success">Enviar</button>
+                    </div>
+                </form>
+
+        {% endblock %}
