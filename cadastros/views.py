@@ -15,7 +15,7 @@ class NoticiasCad(CreateView):
     model = Noticias
     fields = ['titulo', 'imagem', 'legenda', 'texto']
     template_name = 'cadastros/adm_noticias.html'
-    success_url = reverse_lazy('listNoticias')
+    success_url = reverse_lazy('cadNoticias')
 
 
 class NoticiasListagem(ListView):
@@ -40,9 +40,9 @@ class NoticiasDelete(DeleteView):
 
 class FotosCad(CreateView):
     model = Fotos
-    fields = ['titulo', 'imagem', 'legenda']
+    fields = ['titulo', 'imagem', 'legenda', 'categoria']
     template_name = 'cadastros/adm_fotos.html'
-    success_url = reverse_lazy('listFotos')
+    success_url = reverse_lazy('cadFotos')
 
 
 class FotosListagem(ListView):
