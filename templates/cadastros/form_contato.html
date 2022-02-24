@@ -1,9 +1,6 @@
 {% load static %}
 {% include 'css-js.html' %}
 
-    <!-- Template Main CSS File -->
-    <link href="{% static '/css/style.css' %}" rel="stylesheet">
-
     {% block titulo %}
     <title>Formulário de Contato</title>
     {% endblock %}
@@ -12,7 +9,7 @@
     {% load crispy_forms_tags %}
 
         {% block conteudo %}
-
+        <body style="background-color: #f8f9fc">
                 <form method="POST" action="" enctype="multipart/form-data" action="" style="background-color: #f8f9fc">
                     {% csrf_token %}
                     {{ form | crispy }}
@@ -22,5 +19,5 @@
                 </form>
 
             {% include 'cadastros/menssagens.html' %}
-
+        </body>
         {% endblock %}

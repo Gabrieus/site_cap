@@ -28,6 +28,7 @@ urlpatterns = [
     path('alunos/', TemplateView.as_view(template_name="alunos.html"), name='alunos'),
     path('gestao/', TemplateView.as_view(template_name="gestao.html"), name='gestao'),
     path('admSite/', TemplateView.as_view(template_name="administracao.html"), name='admSite'),
+    path('servicos/', TemplateView.as_view(template_name="servicos.html"), name='servicos'),
     path('', include('cadastros.urls')),
 ]
 

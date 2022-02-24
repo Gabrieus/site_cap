@@ -25,7 +25,7 @@ class Fotos(models.Model):
     titulo = models.CharField('Título:', max_length=50)
     imagem = models.ImageField('Imagem:', default='fotos/foto_padrao.png', upload_to='fotos')
     legenda = models.CharField('Legenda:', max_length=100)
-    categoria = models.CharField(choices=ESCOLHAS, max_length=20, default='FUND_I')
+    categoria = models.CharField('Categoria:', choices=ESCOLHAS, max_length=20, default='FUND_I')
     data = models.DateField(default=django.utils.timezone.now)
 
     def __str__(self):

@@ -53,10 +53,10 @@
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
-                <div class="sidebar-brand-icon ">
+                <div class="sidebar-brand-icon mr-2 mt-2">
                     <img src="{% static '/img/logo-cap.png' %}" alt="">
                 </div>
-{#                <div class="sidebar-card-text mx-3">UFAC</div>#}
+{#                <div class="h5 text-white-500 m-0 font-weight-bold">UFAC</div>#}
             </a>
 
             <!-- Divider -->
@@ -70,12 +70,12 @@
 {#            </li>#}
 
             <!-- Divider -->
-            <hr class="sidebar-divider">
+            <hr class="topbar-divider">
 
             <!-- Heading -->
-            <div class="sidebar-heading">
-                Menu
-            </div>
+{#            <div class="sidebar-heading">#}
+{#                Menu#}
+{#            </div>#}
 
             <!-- Itens Menu -->
             <li class="nav-item">
@@ -85,9 +85,10 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="/">
+                <a class="nav-link" href="{% url 'servicos' %}">
                     <i class="bi bi-pencil-square"></i>
-                    <span>Serviços</span></a>
+                    <span>Serviços</span>
+                <i class="bi bi-check-circle-fill" style="color: #17a673"> 100%</i></a>
             </li>
 
             <li class="nav-item">
@@ -133,7 +134,7 @@
             </li>
 
             <!-- Divider -->
-            <hr class="sidebar-divider d-none d-md-block">
+            <hr class="sidebar-divider">
 
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
@@ -165,8 +166,8 @@
                     <div style="position: absolute; left: 45%; right: 50%; top: 45%; width: max-content; text-align: center">
                         <h3 style="color: black;">EM CONSTRUÇÃO...</h3>
                         <div class="progress">
-                            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 62%">62%</div>
-                            <div class="progress-bar bg-dark" role="progressbar" style="width: 38%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%">75%</div>
+                            <div class="progress-bar bg-dark" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                     </div>
 
