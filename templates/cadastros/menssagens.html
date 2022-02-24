@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mensagens</title>
+</head>
+<body>
+    {% for message in messages %}
+    <hr>
+    <div class="alert alert-success {{ message.tags }} alert-dismissible shadow fade show" role="alert" data-aos-delay="10">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+            {{ message | safe }}
+    </div>
+    {% endfor %}
+
+    <script>
+        $(".alert").delay(7500).slideUp(200, function() {
+        $(this).alert('close');
+        });
+    </script>
+</body>
+</html>

@@ -3,19 +3,22 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.list import ListView
 from .models import Noticias, Fotos, Contato
 from django.urls import reverse_lazy
+from django.contrib.messages.views import SuccessMessageMixin
 
 
 def abertura_modelform(request):
     return render(request, "index.html")
 
+
 # Notícias
 
 
-class NoticiasCad(CreateView):
+class NoticiasCad(SuccessMessageMixin, CreateView):
     model = Noticias
     fields = ['titulo', 'imagem', 'legenda', 'texto']
     template_name = 'cadastros/adm_noticias.html'
     success_url = reverse_lazy('cadNoticias')
+    success_message = "Notícia criada com sucesso! Recarregue a lista para ver."
 
 
 class NoticiasListagem(ListView):
@@ -38,11 +41,12 @@ class NoticiasDelete(DeleteView):
 # Fotos
 
 
-class FotosCad(CreateView):
+class FotosCad(SuccessMessageMixin, CreateView):
     model = Fotos
     fields = ['titulo', 'imagem', 'legenda', 'categoria']
     template_name = 'cadastros/adm_fotos.html'
     success_url = reverse_lazy('cadFotos')
+    success_message = "Foto publicada com sucesso! Recarregue a lista para ver."
 
 
 class FotosListagem(ListView):
@@ -70,11 +74,12 @@ class FotosPag(ListView):
 # Contato
 
 
-class ContatoCad(CreateView):
+class ContatoCad(SuccessMessageMixin, CreateView):
     model = Contato
     fields = ['nome', 'email', 'assunto', 'mensagem']
     template_name = 'cadastros/form_contato.html'
-    success_url = reverse_lazy('contato_conf')
+    success_url = reverse_lazy('form_contato')
+    success_message = "Sua mensagem foi enviada com sucesso!"
 
 
 class ContatoListagem(ListView):
