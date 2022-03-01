@@ -13,16 +13,22 @@
 
         <div class="section-title" data-aos="fade-up">
           <h2>Contatos</h2>
-          <h3><span>Nossos Contatos</span></h3>
-          <p>Aqui disponibilizamos várias formas para nos encontrar</p>
+        {% for item in contatopage_list %}
+          <h3><span>{{ item.titulo }}</span></h3>
+          <p>{{ item.legenda }}</p>
         </div>
+        {% empty %}
+            Error: O administrador ainda não configurou a página Contatos.
+        {% endfor %}
 
         <div class="row" data-aos="fade-up" data-aos-delay="10">
           <div class="col-lg-6">
             <div class="info-box mb-4">
               <i class="bx bx-map"></i>
               <h3>Nosso endereço</h3>
-              <p>Endereço: Av. Getúlio Vargas, 654 - Centro, Rio Branco - AC, 69900-150</p>
+            {% for item in contatopage_list %}
+              <p>{{ item.enderecoCap }}</p>
+
             </div>
           </div>
 
@@ -30,7 +36,7 @@
             <div class="info-box  mb-4">
               <i class="bx bx-envelope"></i>
               <h3>E-mail</h3>
-              <p>cap@ufac.br</p>
+              <p>{{ item.emailCap }}</p>
             </div>
           </div>
 
@@ -38,10 +44,12 @@
             <div class="info-box  mb-4">
               <i class="bx bx-phone-call"></i>
               <h3>Telefone</h3>
-              <p>(68) 99971-3692</p>
+              <p>{{ item.foneCap }}</p>
             </div>
           </div>
-
+            {% empty %}
+                Error: O administrador ainda não configurou a página Contatos.
+            {% endfor %}
         </div>
 
         <div class="row" data-aos="fade-up" data-aos-delay="100">
@@ -51,7 +59,7 @@
           </div>
 
           <div class="col-lg-6">
-            <iframe class="embed-responsive-item" src="{% url 'form_contato' %}" allowfullscreen height="715px"
+            <iframe class="embed-responsive-item" src="{% url 'cadContato' %}" allowfullscreen height="715px"
                     width="100%"></iframe>
           </div>
 

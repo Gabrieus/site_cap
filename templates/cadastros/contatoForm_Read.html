@@ -1,4 +1,6 @@
+{% extends 'baseAdm.html' %}
 {% load static %}
+
 {% include 'css-js.html' %}
 
 {% block titulo %}
@@ -52,13 +54,13 @@
                                     {{ item.mensagem }}
                                 </div>
                                 <div class="modal-footer">
-                                    <a href="{% url 'contato_excluir' item.pk %}" class="btn btn-danger">Excluir</a>
+                                    <a href="{% url 'delContato' item.pk %}" class="btn btn-danger">Excluir</a>
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Ok</button>
                                 </div>
                             </div>
                         </div>
                     </div></td>
-                <td><a href="{% url 'contato_excluir' item.pk %}" class="btn btn-danger"><i class="fa fa-trash"></i></a></td>
+                <td><a href="{% url 'delContato' item.pk %}" class="btn btn-danger"><i class="fa fa-trash"></i></a></td>
             </tr>
 
         {% empty %}

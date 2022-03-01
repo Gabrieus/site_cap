@@ -1,5 +1,3 @@
-import datetime
-
 import django.utils.timezone
 from django.db import models
 
@@ -32,7 +30,7 @@ class Fotos(models.Model):
         return self.titulo
 
 
-class Contato(models.Model):
+class ContatoForm(models.Model):
     nome = models.CharField('Nome:', max_length=100)
     email = models.EmailField('E-mail:')
     assunto = models.CharField('Assunto:', max_length=100)
@@ -41,3 +39,14 @@ class Contato(models.Model):
 
     def __str__(self):
         return self.nome
+
+
+class ContatoPage(models.Model):
+    titulo = models.CharField('Título:', max_length=40, default='Nossos Contatos')
+    legenda = models.TextField('Legenda:', default='Aqui disponibilizamos várias formas para nos encontrar', null=True, blank=True)
+    enderecoCap = models.TextField('Endereço CAP:', default='Endereço: Av. Getúlio Vargas, 654 - Centro, Rio Branco - AC, 69900-150', null=True, blank=True)
+    emailCap = models.EmailField('Email CAP:', default='cap@ufac.br', null=True, blank=True)
+    foneCap = models.CharField('Telefone CAP:', max_length=20, default='(68) 99971-3692', null=True, blank=True)
+
+    def __str__(self):
+        return self.titulo

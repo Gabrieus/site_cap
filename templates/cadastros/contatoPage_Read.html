@@ -1,0 +1,97 @@
+{% extends 'baseAdm.html' %}
+{% load static %}
+
+{% block titulo %}
+    <title>Página Contato Lista</title>
+{% endblock %}
+
+
+{% block conteudo %}
+
+    <br><h3 class="h3 text-black-800">Configuração Atual</h3>
+    <hr>
+
+    <ul><h5>Instruções:</h5>
+        <li>Para que a página funcione corretamente, deve haver pelo menos um registro, excedentes devem ser excluídos.</li>
+        <li>Caso haja zero registros, utilize a página de cadastro para realizar um novo: <a href="{% url 'cadPageContato' %}">Cadastrar Registro</a></li>
+        <li>Editar os campos dos registros abaixo irá modificar seus respectivos na página Contato.</li>
+    </ul>
+
+    <table class="table table-striped" id="tabela-contato">
+        <thead><p>Registros da Página <a href={% url 'contato' %}>Contato</a>:</p></thead>
+        <tbody>
+        {% for i in contatopage_list %}
+        <tr>
+            <td><strong>Título</strong></td>
+                <td>{{i.titulo}}</td>
+        </tr>
+
+        <tr>
+            <td><strong>Legenda</strong></td>
+                <td>{{i.legenda}}</td>
+        </tr>
+
+        <tr>
+            <td><strong>Endereço</strong></td>
+                <td>{{i.enderecoCap}}</td>
+        </tr>
+
+        <tr>
+            <td><strong>Telefone</strong></td>
+                <td>{{i.foneCap}}</td>
+        </tr>
+
+        <tr>
+            <td><strong>Editar/Deletar</strong></td>
+            <td><a href="{% url 'editPageContato' i.pk %}" class="btn btn-warning"><i class="fas fa-edit" style="color: white;"></i></a>
+                <a href="{% url 'delPageContato' i.pk %}" class="btn btn-danger"><i class="fa fa-trash"></i></a></td>
+        </tr>
+        <tr><td><hr></td></tr>
+        {% endfor %}
+    </tbody>
+    </table>
+
+<script>
+
+    $(document).ready( function ()
+    {
+        $('#tabela-contato').DataTable(
+        {
+            responsive: true,
+            "lengthChange": false,
+            // "bSort": false,
+            "aaSorting": [],
+            "pageLength": 10,
+            "language":
+            {
+                "decimal": "",
+                "emptyTable": "Sem dados disponíveis",
+                "info": "Mostrando de _START_ até _END_ de _TOTAL_ registos",
+                "infoEmpty": "Mostrando de 0 até 0 de 0 registos",
+                "infoFiltered": "(filtrado de _MAX_ registos no total)",
+                "infoPostFix": "",
+                "thousands": ",",
+                "lengthMenu": "Mostrar: _MENU_",
+                "loadingRecords": "Carregando dados...",
+                "processing": "Processando...",
+                "search": "Procurar:",
+                "zeroRecords": "Não foram encontrados resultados",
+                "paginate":
+                {
+                    "first": "Primeiro",
+                    "last": "Último",
+                    "next": "Seguinte",
+                    "previous": "Anterior"
+                },
+                "aria":
+                {
+                    "sortAscending": ": Ordem crescente",
+                    "sortDescending": ": Ordem decrescente"
+                }
+            }
+        })
+    });
+
+    </script>
+
+{% endblock %}
