@@ -2,51 +2,59 @@
 {% load static %}
 
 {% block titulo %}
-    <title>Página Contato Lista</title>
+    <title>Contato: Configuração</title>
 {% endblock %}
 
 
 {% block conteudo %}
 
-    <br><h3 class="h3 text-black-800">Configuração Atual</h3>
+    <br><h3 class="h3 text-black-800">Configuração da Página</h3>
     <hr>
 
     <ul><h5>Instruções:</h5>
         <li>Para que a página funcione corretamente, deve haver pelo menos um registro, excedentes devem ser excluídos.</li>
         <li>Caso haja zero registros, utilize a página de cadastro para realizar um novo: <a href="{% url 'cadPageContato' %}">Cadastrar Registro</a></li>
-        <li>Editar os campos dos registros abaixo irá modificar seus respectivos na página Contato.</li>
+        <li>Editar os campos dos registros abaixo irá modificar seus respectivos na página Contato do site.</li>
+        <li>O link do mapa pode ser obtido no Google Maps, utilizando a opção "Compartilhar"/"Share"(apenas o link do iframe em: src="link").</li>
     </ul>
 
     <table class="table table-striped" id="tabela-contato">
         <thead><p>Registros da Página <a href={% url 'contato' %}>Contato</a>:</p></thead>
         <tbody>
+
         {% for i in contatopage_list %}
+
         <tr>
-            <td><strong>Título</strong></td>
+            <td><strong>Título:</strong></td>
                 <td>{{i.titulo}}</td>
         </tr>
 
         <tr>
-            <td><strong>Legenda</strong></td>
+            <td><strong>Legenda:</strong></td>
                 <td>{{i.legenda}}</td>
         </tr>
 
         <tr>
-            <td><strong>Endereço</strong></td>
+            <td><strong>Endereço:</strong></td>
                 <td>{{i.enderecoCap}}</td>
         </tr>
 
         <tr>
-            <td><strong>Telefone</strong></td>
+            <td><strong>Telefone:</strong></td>
                 <td>{{i.foneCap}}</td>
         </tr>
 
         <tr>
-            <td><strong>Editar/Deletar</strong></td>
-            <td><a href="{% url 'editPageContato' i.pk %}" class="btn btn-warning"><i class="fas fa-edit" style="color: white;"></i></a>
-                <a href="{% url 'delPageContato' i.pk %}" class="btn btn-danger"><i class="fa fa-trash"></i></a></td>
+            <td><strong>Link do Mapa:</strong></td>
+                <td>https://www.google.com/maps/embed?pb=...</td>
         </tr>
-        <tr><td><hr></td></tr>
+
+        <tr style="text-align: center;"><td>
+        <a href="{% url 'editPageContato' i.pk %}" class="btn btn-warning mr-4"><i class="fas fa-edit"></i> Editar</a>
+        <a href="{% url 'delPageContato' i.pk %}" class="btn btn-danger"><i class="fas fa-exclamation-triangle"></i> Excluir</a>
+        </td>
+        </tr>
+
         {% endfor %}
     </tbody>
     </table>

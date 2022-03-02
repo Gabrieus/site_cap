@@ -55,7 +55,9 @@
         <div class="row" data-aos="fade-up" data-aos-delay="100">
 
           <div class="col-lg-6 ">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15718.196648683606!2d-67.8106109!3d-9.9714163!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x589d3c359dec27ca!2zQ29sw6lnaW8gZGUgQXBsaWNhw6fDo28gZGEgVWZhYw!5e0!3m2!1spt-BR!2sbr!4v1644278509347!5m2!1spt-BR!2sbr" frameborder="0" style="border:0; width: 100%; height: 384px;" allowfullscreen></iframe>
+              {% for item in contatopage_list %}
+            <iframe src="{{ item.mapaCap }}" frameborder="0" style="border:0; width: 100%; height: 384px;" allowfullscreen></iframe>
+              {% endfor %}
           </div>
 
           <div class="col-lg-6">

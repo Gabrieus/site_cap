@@ -1,23 +1,28 @@
+{% extends 'baseAdm.html' %}
 {% load static %}
-{% include 'css-js.html' %}
 
     {% block titulo %}
-    <title>Deletar</title>
+    <title>Contato: Excluir Registro</title>
     {% endblock %}
 
     {% load crispy_forms_tags %}
     {% block conteudo %}
-        <br><h3 class="h3 text-black-800">Excluir Mensagem</h3>
-        <b>Deseja excluir esta configuração?</b><hr>
-        <b>Endereço:</b> {{ object.enderecoCap }}
+        <br><h3 class="h3 text-black-800">Excluindo Registro</h3>
+        <hr>
+        <b>Deseja excluir esta configuração?</b>
+        <p>Atenção! - Lembre-se de deixar ao menos um registro cadastrado para que a página Contatos seja exibida corretamente.</p>
+        <hr>
+        <b>Título:</b> {{ object.titulo }}
+        <br><b>Legenda:</b> {{ object.legenda }}
+        <br><b>Endereço:</b> {{ object.enderecoCap }}
         <br><b>Email:</b> {{ object.emailCap }}
         <br><b>Telefone:</b> {{ object.foneCap }}
         <form method="POST">
             {% csrf_token %}
             {{ form | crispy }}
         <div>
-            <br><button type="submit" class="save btn btn-danger">Confirmo exclusão</button>
-            <a href="{%  url 'listContato' %}" class="btn btn-outline-secondary">Cancelar</a>
+            <br><button type="submit" class="save btn btn-danger">Confirmar Exclusão</button>
+            <a href="{%  url 'listPageContato' %}" class="btn btn-outline-secondary">Cancelar</a>
         </div>
         </form>
 

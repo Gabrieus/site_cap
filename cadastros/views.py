@@ -76,15 +76,15 @@ class FotosPag(ListView):
 
 class ContatoPageCreate(SuccessMessageMixin, CreateView):
     model = ContatoPage
-    fields = ['titulo', 'legenda', 'enderecoCap', 'emailCap', 'foneCap']
+    fields = ['titulo', 'legenda', 'emailCap', 'foneCap', 'enderecoCap', 'mapaCap']
     template_name = 'cadastros/contatoPage_CreateAndUpdate.html'
-    success_url = reverse_lazy('cadPageContato')
+    success_url = reverse_lazy('listPageContato')
     success_message = "A página contato foi atualizada com sucesso!"
 
 
 class ContatoPageUpdate(UpdateView):
     model = ContatoPage
-    fields = ['titulo', 'legenda', 'enderecoCap', 'emailCap', 'foneCap']
+    fields = ['titulo', 'legenda', 'emailCap', 'foneCap', 'enderecoCap', 'mapaCap']
     template_name = 'cadastros/contatoPage_CreateAndUpdate.html'
     success_url = reverse_lazy('listPageContato')
 
