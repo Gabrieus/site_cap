@@ -4,7 +4,7 @@
 {% load static %}
 
 {% block titulo %}
-    <title>Contato: Configuração</title>
+    <title>Fotos: Configuração</title>
 {% endblock %}
 
 {% block conteudo %}
@@ -15,32 +15,32 @@
     <ul><h5>Instruções:</h5>
 {#        <li>Para que a página funcione corretamente, deve haver apenas um registro, excedentes devem ser excluídos.</li>#}
 {#        <li>Caso haja zero registros, utilize a página de cadastro para realizar um novo: <a href="{% url 'cadPageContato' %}">Cadastrar Registro</a></li>#}
-        <li>Editar os campos do registro abaixo modificará seus respectivos textos na página Contato do site.</li>
-        <li>O link do mapa pode ser obtido no Google Maps, utilizando a opção "Compartilhar"/"Share" (apenas o link do iframe em: src="link").</li>
+        <li>Editar os campos do registro abaixo modificará seus respectivos textos na página Fotos/Eventos do site.</li>
+        <li>Título I/Título II referem-se à parte normal e destacada (azul) do título, respectivamente.</li>
     </ul>
 
     <!-- Alertas sobre o funcionamento da página -->
     <div name="alertas">
     <hr>
-    {% if contatopage_list.count > 1 %}
+    {% if fotos_list.count > 1 %}
         <div class="alert alert-danger alert-dismissible fade show" role="alert">
-            • Há {{ contatopage_list.count }} registro(s), para que a página <b>Contato</b> funcione corretamente, deve haver apenas um. Exclua os excedentes.
+            • Há {{ fotos_list.count }} registro(s), para que a página <b>Fotos/Eventos</b> funcione corretamente, deve haver apenas um. Exclua os excedentes.
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>
     {% endif %}
-    {% if contatopage_list.count == 1 %}
+    {% if fotos_list.count == 1 %}
         <div class="alert alert-success alert-dismissible fade show" role="alert">
-            • Há 1 registro, a página <b>Contato</b> funcionará corretamente.
+            • Há 1 registro, a página <b>Fotos/Eventos</b> funcionará corretamente.
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>
     {% endif %}
-    {% if contatopage_list.count == 0 %}
+    {% if fotos_list.count == 0 %}
         <div class="alert alert-warning alert-dismissible fade show" role="alert">
-            • Há 0 registros, a página <b>Contato</b> funcionará com informações padrão. Para ter acesso à edição, realize um <a href="{% url 'cadPageContato' %}">Cadastro</a>.
+            • Há 0 registros, a página <b>Fotos/Eventos</b> funcionará com informações padrão. Para ter acesso à edição, realize um <a href="{% url 'cadPageFotos' %}">Cadastro</a>.
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -50,40 +50,30 @@
     <!-- Fim dos alertas -->
 
     <!-- Tabela de dados da página -->
-    <table class="table table-striped" id="tabela-contato">
-        <thead><p>Registros da Página <a href={% url 'contato' %}>Contato</a>:</p></thead>
+    <table class="table table-striped" id="tabela-fotos">
+        <thead><p>Registros da Página <a href={% url 'fotos' %}>Fotos/Eventos</a>:</p></thead>
         <tbody>
 
-        {% for i in contatopage_list %}
+        {% for i in fotos_list %}
 
         <tr>
-            <td><strong>Título:</strong></td>
-                <td>{{i.titulo}}</td>
+            <td><strong>Título I:</strong></td>
+                <td>{{i.tituloOne}}</td>
+        </tr>
+
+        <tr>
+            <td><strong>Título II:</strong></td>
+                <td>{{i.tituloTwo}}</td>
         </tr>
 
         <tr>
             <td><strong>Legenda:</strong></td>
-                <td>{{i.legenda}}</td>
-        </tr>
-
-        <tr>
-            <td><strong>Endereço:</strong></td>
-                <td>{{i.enderecoCap}}</td>
-        </tr>
-
-        <tr>
-            <td><strong>Telefone:</strong></td>
-                <td>{{i.foneCap}}</td>
-        </tr>
-
-        <tr>
-            <td><strong>Link do Mapa:</strong></td>
-                <td>https://www.google.com/maps/embed?pb=...</td>
+                <td>{{i.legendaPage}}</td>
         </tr>
 
         <tr style="text-align: center;"><td>
-        <a href="{% url 'editPageContato' i.pk %}" class="btn btn-warning mr-4"><i class="fas fa-edit"></i> Editar</a>
-        <a href="{% url 'delPageContato' i.pk %}" class="btn btn-danger"><i class="fas fa-exclamation-triangle"></i> Excluir</a>
+        <a href="{% url 'editPageFotos' i.pk %}" class="btn btn-warning mr-4"><i class="fas fa-edit"></i> Editar</a>
+        <a href="{% url 'delPageFotos' i.pk %}" class="btn btn-danger"><i class="fas fa-exclamation-triangle"></i> Excluir</a>
         </td>
         </tr>
 
@@ -99,7 +89,7 @@
 
     $(document).ready( function ()
     {
-        $('#tabela-contato').DataTable(
+        $('#tabela-fotos').DataTable(
         {
             responsive: true,
             "lengthChange": false,

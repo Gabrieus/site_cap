@@ -1,3 +1,5 @@
+<!-- Author: Gabriel Martins -->
+
 {% extends 'baseAdm.html' %}
 {% load static %}
 
@@ -42,7 +44,8 @@
                     </button>
 
                     <!-- Modal -->
-                    <div class="modal fade" id="mensagem_{{ item.pk }}" tabindex="-1" aria-labelledby="texto_{{ item.pk }}"
+                    <div class="modal fade" id="mensagem_{{ item.pk }}" tabindex="-1"
+                         aria-labelledby="texto_{{ item.pk }}"
                          aria-hidden="true">
                         <div class="modal-dialog modal-xl" role="document">
                             <div class="modal-content">
@@ -61,59 +64,60 @@
                                 </div>
                             </div>
                         </div>
-                    </div></td>
+                    </div>
+                </td>
                 <td><a href="{% url 'delContato' item.pk %}" class="btn btn-danger"><i class="fa fa-trash"></i></a></td>
             </tr>
 
         {% empty %}
 
-            Nada foi registrado<br><hr>
+            Nada foi registrado<br>
+            <hr>
 
         {% endfor %}
 
         </tbody>
     </table>
 
-<script>
+    <script>
 
-    $(document).ready( function ()
-    {
-        $('#tabela-contato').DataTable(
-        {
-            responsive: true,
-            "lengthChange": false,
-            // "bSort": false,
-            "aaSorting": [],
-            "pageLength": 10,
-            "language":
-            {
-                "decimal": "",
-                "emptyTable": "Sem dados disponíveis",
-                "info": "Mostrando de _START_ até _END_ de _TOTAL_ registos",
-                "infoEmpty": "Mostrando de 0 até 0 de 0 registos",
-                "infoFiltered": "(filtrado de _MAX_ registos no total)",
-                "infoPostFix": "",
-                "thousands": ",",
-                "lengthMenu": "Mostrar: _MENU_",
-                "loadingRecords": "Carregando dados...",
-                "processing": "Processando...",
-                "search": "Procurar:",
-                "zeroRecords": "Não foram encontrados resultados",
-                "paginate":
+        $(document).ready(function () {
+            $('#tabela-contato').DataTable(
                 {
-                    "first": "Primeiro",
-                    "last": "Último",
-                    "next": "Seguinte",
-                    "previous": "Anterior"
-                },
-                "aria":
-                {
-                    "sortAscending": ": Ordem crescente",
-                    "sortDescending": ": Ordem decrescente"
-                }
-            }
-        })
-    });
+                    responsive: true,
+                    "lengthChange": false,
+                    // "bSort": false,
+                    "aaSorting": [],
+                    "pageLength": 10,
+                    "language":
+                        {
+                            "decimal": "",
+                            "emptyTable": "Sem dados disponíveis",
+                            "info": "Mostrando de _START_ até _END_ de _TOTAL_ registos",
+                            "infoEmpty": "Mostrando de 0 até 0 de 0 registos",
+                            "infoFiltered": "(filtrado de _MAX_ registos no total)",
+                            "infoPostFix": "",
+                            "thousands": ",",
+                            "lengthMenu": "Mostrar: _MENU_",
+                            "loadingRecords": "Carregando dados...",
+                            "processing": "Processando...",
+                            "search": "Procurar:",
+                            "zeroRecords": "Não foram encontrados resultados",
+                            "paginate":
+                                {
+                                    "first": "Primeiro",
+                                    "last": "Último",
+                                    "next": "Seguinte",
+                                    "previous": "Anterior"
+                                },
+                            "aria":
+                                {
+                                    "sortAscending": ": Ordem crescente",
+                                    "sortDescending": ": Ordem decrescente"
+                                }
+                        }
+                })
+        });
 
     </script>
 

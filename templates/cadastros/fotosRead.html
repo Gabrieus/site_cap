@@ -1,3 +1,5 @@
+<!-- Author: Gabriel Martins -->
+
 {% extends 'baseAdm.html' %}
 {% load static %}
 
@@ -8,7 +10,13 @@
 
 {% block conteudo %}
 
-    <br><h3 class="h3 text-black-800">Lista de Fotos <button title="Atualizar" class="btn btn-dark" onclick="document.getElementById('iframe-fotos').contentWindow.location.reload();" style="border-radius: 50%; opacity: 80%;"><i class="bi bi-arrow-clockwise" style="color: white;"></i></button></h3>
+    <br>
+    <h3 class="h3 text-black-800">Lista de Fotos
+        <button title="Atualizar" class="btn btn-dark"
+                onclick="document.getElementById('iframe-fotos').contentWindow.location.reload();"
+                style="border-radius: 50%; opacity: 80%;"><i class="bi bi-arrow-clockwise" style="color: white;"></i>
+        </button>
+    </h3>
     <hr>
     <table class="table table-striped" id="tabela-fotos">
         <thead>
@@ -49,46 +57,45 @@
         </tbody>
     </table>
 
-        <script>
+    <script>
 
-    $(document).ready( function ()
-    {
-        $('#tabela-fotos').DataTable(
-        {
-            responsive: true,
-            "lengthChange": false,
-            // "bSort": false,
-            "aaSorting": [],
-            "pageLength": 10,
-            "language":
-            {
-                "decimal": "",
-                "emptyTable": "Sem dados disponíveis",
-                "info": "Mostrando de _START_ até _END_ de _TOTAL_ registos",
-                "infoEmpty": "Mostrando de 0 até 0 de 0 registos",
-                "infoFiltered": "(filtrado de _MAX_ registos no total)",
-                "infoPostFix": "",
-                "thousands": ",",
-                "lengthMenu": "Mostrar: _MENU_",
-                "loadingRecords": "Carregando dados...",
-                "processing": "Processando...",
-                "search": "Procurar:",
-                "zeroRecords": "Não foram encontrados resultados",
-                "paginate":
+        $(document).ready(function () {
+            $('#tabela-fotos').DataTable(
                 {
-                    "first": "Primeiro",
-                    "last": "Último",
-                    "next": "Seguinte",
-                    "previous": "Anterior"
-                },
-                "aria":
-                {
-                    "sortAscending": ": Ordem crescente",
-                    "sortDescending": ": Ordem decrescente"
-                }
-            }
-        })
-    });
+                    responsive: true,
+                    "lengthChange": false,
+                    // "bSort": false,
+                    "aaSorting": [],
+                    "pageLength": 10,
+                    "language":
+                        {
+                            "decimal": "",
+                            "emptyTable": "Sem dados disponíveis",
+                            "info": "Mostrando de _START_ até _END_ de _TOTAL_ registos",
+                            "infoEmpty": "Mostrando de 0 até 0 de 0 registos",
+                            "infoFiltered": "(filtrado de _MAX_ registos no total)",
+                            "infoPostFix": "",
+                            "thousands": ",",
+                            "lengthMenu": "Mostrar: _MENU_",
+                            "loadingRecords": "Carregando dados...",
+                            "processing": "Processando...",
+                            "search": "Procurar:",
+                            "zeroRecords": "Não foram encontrados resultados",
+                            "paginate":
+                                {
+                                    "first": "Primeiro",
+                                    "last": "Último",
+                                    "next": "Seguinte",
+                                    "previous": "Anterior"
+                                },
+                            "aria":
+                                {
+                                    "sortAscending": ": Ordem crescente",
+                                    "sortDescending": ": Ordem decrescente"
+                                }
+                        }
+                })
+        });
 
     </script>
 

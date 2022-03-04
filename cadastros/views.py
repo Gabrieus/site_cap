@@ -1,13 +1,13 @@
-from django.shortcuts import render
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.list import ListView
-from .models import Noticias, Fotos, ContatoForm, ContatoPage
+from .models import Noticias, Fotos, ContatoForm, ContatoPage, FotosPage
 from django.urls import reverse_lazy
 from django.contrib.messages.views import SuccessMessageMixin
+from django.shortcuts import render
 
 
 def abertura_modelform(request):
-    return render(request, "index.html")
+    return render(request, "base.html")
 
 
 # ================ Notícias ================ #
@@ -71,6 +71,39 @@ class FotosPag(ListView):
     model = Fotos
     template_name = 'cadastros/fotos.html'
 
+
+# ================ Fotos/Eventos Page ================ #
+
+class FotosPageCreate(SuccessMessageMixin, CreateView):
+    model = FotosPage
+    fields = ['tituloOne', 'tituloTwo', 'legenda']
+    template_name = 'cadastros/fotosPage_CreateAndUpdate.html'
+    success_url = reverse_lazy('listPageFotos')
+    success_message = "A página fotos foi atualizada com sucesso!"
+
+
+class FotosPageUpdate(UpdateView):
+    model = FotosPage
+    fields = ['tituloOne', 'tituloTwo', 'legenda']
+    template_name = 'cadastros/fotosPage_CreateAndUpdate.html'
+    success_url = reverse_lazy('listPageFotos')
+
+
+class FotosPageList(ListView):
+    model = FotosPage
+    template_name = 'cadastros/fotosPage_Read.html'
+
+
+class FotosPageDelete(DeleteView):
+    model = FotosPage
+    template_name = 'cadastros/fotosPage_Delete.html'
+    success_url = reverse_lazy('listPageFotos')
+
+
+class FotosPageView(ListView):
+    model = FotosPage
+    template_name = 'cadastros/fotos.html'
+
 # ================ Contato Page ================ #
 
 
@@ -124,3 +157,5 @@ class ContatoDelete(DeleteView):
     model = ContatoForm
     template_name = 'cadastros/contatoForm_Delete.html'
     success_url = reverse_lazy('listContato')
+
+

@@ -1,23 +1,23 @@
 {% load static %}
 {% include 'css-js.html' %}
 
-    {% block titulo %}
+{% block titulo %}
     <title>Formulário de Contato</title>
-    {% endblock %}
+{% endblock %}
 
 
-    {% load crispy_forms_tags %}
+{% load crispy_forms_tags %}
 
-        {% block conteudo %}
-        <body style="background-color: #f8f9fc">
-                <form method="POST" enctype="multipart/form-data" action="" style="background-color: #f8f9fc">
-                    {% csrf_token %}
-                    {{ form | crispy }}
-                    <div class="text-right">
-                        <button type="submit" class="save btn btn-success">Enviar</button>
-                    </div>
-                </form>
+{% block conteudo %}
+    <body style="background-color: #f8f9fc">
+    <form method="POST" enctype="multipart/form-data" action="" style="background-color: #f8f9fc">
+        {% csrf_token %}
+        {{ form | crispy }}
+        <div class="text-right">
+            <button type="submit" class="save btn btn-success">Enviar</button>
+        </div>
+    </form>
 
-            {% include 'cadastros/menssagens.html' %}
-        </body>
-        {% endblock %}
+    {% include 'cadastros/menssagens.html' %}
+    </body>
+{% endblock %}
