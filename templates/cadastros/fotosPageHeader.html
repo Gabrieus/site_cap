@@ -1,0 +1,22 @@
+{% include 'css-js.html' %}
+
+{% for item in fotospage_list %}
+
+    <div class="section-title">
+        <h2>FOTOS/EVENTOS</h2>
+
+        <h3>{{ item.tituloOne }} <span>{{ item.tituloTwo }}</span></h3>
+        <p>{{ item.legenda }}</p>
+    </div>
+
+{% empty %}
+
+    <div class="section-title">
+        <h2>FOTOS/EVENTOS</h2>
+
+        <h3>Atividades Escolares e <span>Eventos</span></h3>
+        <p>Aqui são postadas as fotos dos nossos eventos e atividades escolares.</p>
+
+    </div>
+
+{% endfor %}

@@ -4,7 +4,7 @@ from cadastros.views import NoticiasCad, NoticiasDelete, NoticiasUpdate, Noticia
 from cadastros.views import FotosCad, FotosDelete, FotosUpdate, FotosListagem, FotosPag
 from cadastros.views import ContatoCad, ContatoDelete, ContatoList, ContatoPageList
 from cadastros.views import ContatoPageDelete, ContatoPageView, ContatoPageUpdate, ContatoPageCreate
-from cadastros.views import FotosPageCreate, FotosPageList, FotosPageUpdate, FotosPageDelete
+from cadastros.views import FotosPageCreate, FotosPageList, FotosPageUpdate, FotosPageDelete, FotosPageView
 
 urlpatterns = [
 
@@ -28,6 +28,7 @@ urlpatterns = [
     path('editPageFotos/<int:pk>', FotosPageUpdate.as_view(), name='editPageFotos'),
     path('delPageFotos/<int:pk>', FotosPageDelete.as_view(), name='delPageFotos'),
     path('fotos/', FotosPag.as_view(), name='fotos'),
+    path('fotosHeader/', FotosPageView.as_view(), name='fotosHeader'),
 
     # = Urls Contato = #
 

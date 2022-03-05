@@ -102,7 +102,7 @@ class FotosPageDelete(DeleteView):
 
 class FotosPageView(ListView):
     model = FotosPage
-    template_name = 'cadastros/fotos.html'
+    template_name = 'cadastros/fotosPageHeader.html'
 
 # ================ Contato Page ================ #
 
