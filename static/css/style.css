@@ -1558,3 +1558,23 @@ section {
     padding: 2px 0;
   }
 }
+
+.img-noticia {
+  border-style: wave;
+  border-color: #7a92a1;
+  padding: 0;
+}
+
+.texto-noticia {
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgba(107, 107, 107, 0.47);
+  padding: 15px;
+}
+
+.assinatura-adm {
+  font-size: 14px;
+  text-align: center;
+  font-family: Roboto;
+  font-weight: bold;
+}

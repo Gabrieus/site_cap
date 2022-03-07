@@ -1,3 +1,5 @@
+<!-- Author: Gabriel Martins -->
+
 {% extends 'base.html' %}
 {% load static %}
 
@@ -10,9 +12,9 @@
     <div>
 
         <div class="row bg-dark">
-            <img class="col-sm-6 img-thumbnail w-25 h-25" src="{{ object.imagem.url }}">
+            <img class="img-noticia col-sm-6 w-25 h-25" src="{{ object.imagem.url }}">
             <div class="col-sm-6 mt-auto mb-auto ml-4">
-                <h3 class="h3 text-white">{{ object.titulo }}</h3>
+                <h3 class="h3 text-white">{{ object.titulo | title }}</h3>
 {#                <p class="text-white-50">{{ object.legenda }}</p>#}
                 <span class="text-white-50 text-monospace">Publicado em: {{ object.data | date:"d/m/Y" }}</span>
             </div>
@@ -22,10 +24,12 @@
 
     </div>
     <hr>
-    <div>
+    <div class="texto-noticia">
 
         {{ object.texto }}
 
     </div>
+    <hr>
+    <div class="assinatura-adm">- Equipe Gestora</div>
 
 {% endblock %}

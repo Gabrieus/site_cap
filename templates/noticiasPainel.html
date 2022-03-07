@@ -1,4 +1,5 @@
-{#{% extends "base.html" %}#}
+<!-- Author: Gabriel Martins -->
+
 {% load static %}
 {% include 'css-js.html' %}
 
@@ -27,7 +28,7 @@
                                 <!-- Artigo: Conteúdo -->
                                 <div class="post-content">
                                     <a href="{% url 'noticia' item.pk %}" class="post-cata" target="_blank">ver +</a><br>
-                                    <div class="bg-dark ajuste-conteudo"><a href="{% url 'noticia' item.pk %}" class="post-title ml-2 mr-2" target="_blank">{{ item.titulo | truncatewords:8 }}</a></div><br>
+                                    <div class="bg-dark ajuste-conteudo"><a href="{% url 'noticia' item.pk %}" class="post-title ml-2 mr-2" target="_blank">{{ item.titulo | truncatewords:8 | title }}</a></div><br>
 {#                                    <div class="bg-dark d-inline p-2"><span class="text-white-50 p-2">{{ item.legenda }}</span></div>#}
                                     <div class="post-meta d-flex">
                                         <!-- <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 25</a>
@@ -60,7 +61,7 @@
                                         <img src="{{ item.imagem.url }}" alt="">
                                     </div>
                                     <div class="post-content">
-                                        <h6 class="post-title">{{ item.titulo }}</h6>
+                                        <h6 class="post-title">{{ item.titulo | truncatewords:8 | title }}</h6>
                                         <div class="post-meta d-flex justify-content-between">
                                             <span>{{ item.data | date:"d/m/Y" }}</span>
                                         </div>
