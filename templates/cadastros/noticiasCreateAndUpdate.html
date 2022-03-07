@@ -25,6 +25,7 @@
     <form method="POST" action="" enctype="multipart/form-data" action="">
         {% csrf_token %}
         {{ form | crispy }}
+        {{ form.media }}
         <div class="text-right">
 
             {% if object.pk %}

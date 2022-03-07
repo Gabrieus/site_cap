@@ -15,7 +15,7 @@ def abertura_modelform(request):
 
 class NoticiasCad(SuccessMessageMixin, CreateView):
     model = Noticias
-    fields = ['titulo', 'imagem', 'texto']
+    fields = ['titulo', 'imagem', 'texto', 'autor']
     template_name = 'cadastros/noticiasCreateAndUpdate.html'
     success_url = reverse_lazy('cadNoticias')
     success_message = "Notícia criada com sucesso!"

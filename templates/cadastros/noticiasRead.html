@@ -19,6 +19,7 @@
         <tr>
             <th>Data</th>
             <th>Titulo</th>
+            <th>Autor</th>
 {#            <th>Legenda</th>#}
             <th>Imagem</th>
             <th>Texto</th>
@@ -27,11 +28,12 @@
         </thead>
         <tbody>
 
-        {% for item in object_list %}
+        {% for item in noticias_list reversed %}
 
             <tr>
                 <td>{{ item.data | date:"d/m/Y" }}</td>
-                <td>{{ item.titulo }}</td>
+                <td>{{ item.titulo | truncatechars:42 }}</td>
+                <td>{{ item.autor }}</td>
 {#                <td>{{ item.legenda }}</td>#}
                 <td>
                     <a href="{{ item.imagem.url }}" data-gallery="portfolioGallery"

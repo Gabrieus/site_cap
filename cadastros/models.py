@@ -2,13 +2,16 @@ import datetime
 
 import django.utils.timezone
 from django.db import models
+from ckeditor.fields import RichTextField
 
 
 class Noticias(models.Model):
     titulo = models.CharField('Título:', max_length=100)
     imagem = models.ImageField('Imagem:', default='slides/slide_padrao.png', upload_to='slides')
     # legenda = models.CharField('Legenda:', max_length=100, null=True, blank=True, default='')
-    texto = models.TextField('Texto:')
+    # texto = models.TextField('Texto:')
+    texto = RichTextField('Texto:')
+    autor = models.CharField('Autor:', max_length=100, default='Equipe Gestora', null=True, blank=True)
     data = models.DateField(default=django.utils.timezone.now)
 
     def __str__(self):
@@ -53,7 +56,8 @@ class ContatoPage(models.Model):
     emailCap = models.EmailField('Email CAP:', default='cap@ufac.br', null=True, blank=True)
     foneCap = models.CharField('Telefone CAP:', max_length=20, default='(68) 99971-3692', null=True, blank=True)
     mapaCap = models.URLField('Link do Mapa: ',
-                               default='https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15718.196648683606!2d-67.8106109!3d-9.9714163!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x589d3c359dec27ca!2zQ29sw6lnaW8gZGUgQXBsaWNhw6fDo28gZGEgVWZhYw!5e0!3m2!1spt-BR!2sbr!4v1644278509347!5m2!1spt-BR!2sbr', max_length=400)
+                              default='https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15718.196648683606!2d-67.8106109!3d-9.9714163!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x589d3c359dec27ca!2zQ29sw6lnaW8gZGUgQXBsaWNhw6fDo28gZGEgVWZhYw!5e0!3m2!1spt-BR!2sbr!4v1644278509347!5m2!1spt-BR!2sbr',
+                              max_length=400)
 
     def __str__(self):
         return self.titulo
@@ -67,4 +71,13 @@ class FotosPage(models.Model):
                                null=True, blank=True)
 
     def __str__(self):
-        return self.titulos
+        return self.tituloOne
+
+
+class Pilares(models.Model):
+    missao = models.TextField('Missão:')
+    visao = models.TextField('Visão:')
+    valores = models.TextField('Valores:')
+
+    def __str__(self):
+        return self.missao

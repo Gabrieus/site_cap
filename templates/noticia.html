@@ -24,12 +24,12 @@
 
     </div>
     <hr>
-    <div class="texto-noticia">
-
+    <article class="texto-noticia">
+    {% autoescape off %}
         {{ object.texto }}
-
-    </div>
+    {% endautoescape %}
+    </article>
     <hr>
-    <div class="assinatura-adm">- Equipe Gestora</div>
+    <div class="assinatura-adm">- {{ object.autor | default:'' }}</div>
 
 {% endblock %}

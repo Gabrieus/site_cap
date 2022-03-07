@@ -56,7 +56,7 @@
                                     </button>
                                 </div>
                                 <div class="modal-body" style="overflow-wrap: break-word">
-                                    {{ item.mensagem }}
+                                    {{ item.mensagem | linebreaks }}
                                 </div>
                                 <div class="modal-footer">
                                     <a href="{% url 'delContato' item.pk %}" class="btn btn-danger">Excluir</a>
