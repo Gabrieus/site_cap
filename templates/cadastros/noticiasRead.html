@@ -1,41 +1,25 @@
 <!-- Author: Gabriel Martins -->
 
+{% extends 'baseAdm.html' %}
 {% load static %}
 
 {% block titulo %}
-    <title>Lista de Notícias</title>
+    <title>Notícias: Listagem</title>
 {% endblock %}
 
 {% block conteudo %}
 
-    <link href={% static "css/sb-admin-2.min.css" %} rel="stylesheet">
-    <!-- Custom fonts for this template-->
-    <link href={% static "vendor/fontawesome-free/css/all.min.css" %} rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-          rel="stylesheet">
-    <!-- Custom styles for this page -->
-    <link href={% static "vendor/datatables/dataTables.bootstrap4.min.css" %} rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.4/css/dataTables.bootstrap4.min.css">
-    <link rel="stylesheet" type="text/css"
-          href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.bootstrap4.min.css">
-    <link rel="icon" type="image/x-icon" href={% static '/favicon.ico' %}>
-    <!-- Vendor CSS Files -->
-    <link href="{% static '/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
-    <link href="{% static '/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
-    <link href="{% static '/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
-    <link href="{% static '/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
-    <link href="{% static '/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
-    <link href="{% static '/vendor/aos/aos.css' %}" rel="stylesheet">
-
-    <!-- Template Main CSS File -->
-    <link href="{% static '/css/style.css' %}" rel="stylesheet">
+    <br><h3 class="h3 text-black-800">Lista de Notícias</h3>
+    <hr>
+    <p>Lista das notícias criadas disponíveis no site.</p>
+    <hr>
 
     <table class="table table-striped" id="tabela-noticias">
         <thead>
         <tr>
             <th>Data</th>
             <th>Titulo</th>
-            <th>Legenda</th>
+{#            <th>Legenda</th>#}
             <th>Imagem</th>
             <th>Texto</th>
             <th>Editar/Excluir</th>
@@ -46,9 +30,9 @@
         {% for item in object_list %}
 
             <tr>
-                <td>{{ item.data }}</td>
+                <td>{{ item.data | date:"d/m/Y" }}</td>
                 <td>{{ item.titulo }}</td>
-                <td>{{ item.legenda }}</td>
+{#                <td>{{ item.legenda }}</td>#}
                 <td>
                     <a href="{{ item.imagem.url }}" data-gallery="portfolioGallery"
                        class="portfolio-lightbox preview-link" title="{{ item.titulo }}"><i class="fa fa-image"></i> Ver
@@ -82,9 +66,9 @@
                         </div>
                     </div>
                 </td>
-                <td><a href="{% url 'editNoticias' item.pk %}" class="btn btn-warning"><i class="fas fa-edit"
+                <td><a href="{% url 'editNoticias' item.pk %}" class="btn btn-warning" title="Editar"><i class="fas fa-edit"
                                                                                           style="color: white;"></i></a>
-                    <a href="{% url 'delNoticias' item.pk %}" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                    <a href="{% url 'delNoticias' item.pk %}" class="btn btn-danger" title="Excluir"><i class="fa fa-trash"></i></a>
                 </td>
             </tr>
 
@@ -96,48 +80,6 @@
 
         </tbody>
     </table>
-
-    <!-- Bootstrap core JavaScript-->
-    <script src={% static "vendor/jquery/jquery.min.js" %}></script>
-    <script src={% static "vendor/bootstrap/js/bootstrap.bundle.min.js" %}></script>
-
-    <!-- Core plugin JavaScript-->
-    <script src={% static "vendor/jquery-easing/jquery.easing.min.js" %}></script>
-
-    <!-- Custom scripts for all pages-->
-    <script src={% static "js/sb-admin-2.min.js" %}></script>
-
-    <!-- Page level plugins -->
-    <script src={% static "vendor/datatables/jquery.dataTables.min.js" %}></script>
-    <script src={% static "vendor/datatables/dataTables.bootstrap4.min.js" %}></script>
-
-    <!-- Page level custom scripts -->
-    <script src={% static "js/demo/datatables-demo.js" %}></script>
-
-    <!-- Page level plugins -->
-    <script src={% static "vendor/chart.js/Chart.min.js" %}></script>
-
-    <!-- Page level custom scripts -->
-    <script src={% static "js/demo/chart-area-demo.js" %}></script>
-    <!-- <script src={% static "js/demo/chart-pie-demo.js" %}></script> -->
-    <script src={% static "js/demo/chart-bar-demo.js" %}></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-            crossorigin="anonymous"></script>
-
-    <!-- Vendor JS Files -->
-    <script src="{% static '/vendor/purecounter/purecounter.js' %}"></script>
-    <script src="{% static '/vendor/aos/aos.js' %}"></script>
-    <script src="{% static '/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
-    <script src="{% static '/vendor/glightbox/js/glightbox.min.js' %}"></script>
-    <script src="{% static '/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
-    <script src="{% static '/vendor/swiper/swiper-bundle.min.js' %}"></script>
-    <script src="{% static '/vendor/waypoints/noframework.waypoints.js' %}"></script>
-    <script src="{% static '/vendor/php-email-form/validate.js' %}"></script>
-
-    <!-- Template Main JS File -->
-    <script src="{% static '/js/main.js' %}"></script>
-
 
     <script>
 

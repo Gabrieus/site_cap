@@ -11,8 +11,9 @@
     <br><h3 class="h3 text-black-800">Excluir Notícia</h3>
     <b>Deseja excluir esta notícia?</b>
     <hr>
-    <b>Texto:</b> {{ object.titulo }}
-    <br><b>Legenda:</b> {{ object.legenda }}
+    <b>Título:</b> {{ object.titulo }}
+    <b>Texto:</b> {{ object.texto }}
+{#    <br><b>Legenda:</b> {{ object.legenda }}#}
 
     <form method="POST">
         {% csrf_token %}

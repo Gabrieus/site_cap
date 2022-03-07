@@ -4,7 +4,7 @@
 {% load static %}
 
 {% block titulo %}
-    <title>Lista de Fotos</title>
+    <title>Fotos: Listagem</title>
 {% endblock %}
 
 
@@ -31,18 +31,18 @@
         {% for item in object_list %}
 
             <tr>
-                <td>{{ item.data }}</td>
+                <td>{{ item.data | date:"d/m/Y" }}</td>
                 <td>{{ item.titulo }}</td>
-                <td>{{ item.legenda }}</td>
+                <td>{{ item.legenda | truncatechars:42 }}</td>
                 <td>{{ item.categoria }}</td>
                 <td>
                     <a href="{{ item.imagem.url }}" data-gallery="portfolioGallery"
                        class="portfolio-lightbox preview-link" title="{{ item.titulo }}"><i class="fa fa-image"></i> Ver
                         imagem</a>
                 </td>
-                <td><a href="{% url 'editFotos' item.pk %}" class="btn btn-warning"><i class="fas fa-edit"
+                <td><a href="{% url 'editFotos' item.pk %}" class="btn btn-warning" title="Editar"><i class="fas fa-edit"
                                                                                        style="color: white;"></i></a>
-                    <a href="{% url 'delFotos' item.pk %}" class="btn btn-danger"><i class="fa fa-trash"></i></a></td>
+                    <a href="{% url 'delFotos' item.pk %}" class="btn btn-danger" title="Excluir"><i class="fa fa-trash"></i></a></td>
             </tr>
 
         {% empty %}

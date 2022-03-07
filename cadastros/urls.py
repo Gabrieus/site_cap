@@ -1,19 +1,21 @@
 from django.urls import path
 from cadastros import views
-from cadastros.views import NoticiasCad, NoticiasDelete, NoticiasUpdate, NoticiasListagem
+from cadastros.views import NoticiasCad, NoticiasDelete, NoticiasUpdate, NoticiasListagem, NoticiasPageList, NoticiasArticleView
 from cadastros.views import FotosCad, FotosDelete, FotosUpdate, FotosListagem, FotosPag
 from cadastros.views import ContatoCad, ContatoDelete, ContatoList, ContatoPageList
 from cadastros.views import ContatoPageDelete, ContatoPageView, ContatoPageUpdate, ContatoPageCreate
 from cadastros.views import FotosPageCreate, FotosPageList, FotosPageUpdate, FotosPageDelete, FotosPageView
 
 urlpatterns = [
+    path('', views.abertura_modelform, name='index'),
 
     # = Urls notícias = #
     path('cadNoticias/', NoticiasCad.as_view(), name='cadNoticias'),
     path('listNoticias/', NoticiasListagem.as_view(), name='listNoticias'),
     path('editNoticias/<int:pk>', NoticiasUpdate.as_view(), name='editNoticias'),
     path('delNoticias/<int:pk>', NoticiasDelete.as_view(), name='delNoticias'),
-    path('', views.abertura_modelform, name='index'),
+    path('inicio/', NoticiasPageList.as_view(), name='inicio'),
+    path('noticia/<int:pk>', views.NoticiasArticleView.as_view(), name='noticia'),
 
     # = Urls Fotos/Eventos = #
 

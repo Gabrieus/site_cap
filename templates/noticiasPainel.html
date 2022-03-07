@@ -1,0 +1,77 @@
+{#{% extends "base.html" %}#}
+{% load static %}
+{% include 'css-js.html' %}
+
+{% block titulo %}
+    <title>Painel de Notícias</title>
+{% endblock %}
+
+{% block conteudo %}
+
+<link rel="stylesheet" href="{% static 'css/style-carousel.css' %}">
+
+
+
+<body>
+    <!-- Carrossel -->
+    <div class="d-flex container-fluid">
+        <div class="row no-gutters mt-5">
+            <div class="col-12 col-md-7 col-lg-8">
+                <div class="tab-content">
+
+                    {% for item in noticias_list %}
+                        <!-- Artigo -->
+                        <div class="tab-pane fade show {% if forloop.first %}active{% endif %}" id="post-{{ item.pk }}" role="tabpanel" aria-labelledby="post-{{ item.pk }}-tab">
+                            <div class="single-feature-post video-post bg-img" style="background-image: url({{ item.imagem.url }});">
+
+                                <!-- Artigo: Conteúdo -->
+                                <div class="post-content">
+                                    <a href="{% url 'noticia' item.pk %}" class="post-cata" target="_blank">ver +</a><br>
+                                    <div class="text-white bg-dark"><a href="{% url 'noticia' item.pk %}" class="post-title ml-2" target="_blank">{{ item.titulo | truncatewords:8 }}</a></div><br>
+{#                                    <div class="bg-dark d-inline p-2"><span class="text-white-50 p-2">{{ item.legenda }}</span></div>#}
+                                    <div class="post-meta d-flex">
+                                        <!-- <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 25</a>
+                                        <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> 25</a>
+                                        <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 25</a> -->
+                                    </div>
+                                </div>
+
+                                <!-- Video Duration -->
+                                <span class="video-duration">
+                                    {{ item.data | date:"d/m/Y" }}</span>
+                            </div>
+                        </div>
+                    {% endfor %}
+
+                </div>
+            </div>
+
+            <!-- MATERIAL DA LATERAL -->
+
+            <div class="col-12 col-md-5 col-lg-4">
+                <ul class="nav vizew-nav-tab" role="tablist">
+                    {% for item in noticias_list %}
+                        <li class="nav-item w-100">
+
+                            <a class="nav-link {% if forloop.first %}active{% endif %}" id="post-{{ item.pk }}-tab" data-toggle="pill" href="#post-{{ item.pk }}" role="tab" aria-controls="post-{{ item.pk }}" aria-selected="true">
+                                <!-- Single Blog Post -->
+                                <div class="single-blog-post style-2 d-flex align-items-center">
+                                    <div class="post-thumbnail">
+                                        <img src="{{ item.imagem.url }}" alt="">
+                                    </div>
+                                    <div class="post-content">
+                                        <h6 class="post-title">{{ item.titulo }}</h6>
+                                        <div class="post-meta d-flex justify-content-between">
+                                            <span>{{ item.data | date:"d/m/Y" }}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+    </body>
+{% endblock conteudo %}

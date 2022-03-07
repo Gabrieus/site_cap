@@ -15,10 +15,10 @@ def abertura_modelform(request):
 
 class NoticiasCad(SuccessMessageMixin, CreateView):
     model = Noticias
-    fields = ['titulo', 'imagem', 'legenda', 'texto']
+    fields = ['titulo', 'imagem', 'texto']
     template_name = 'cadastros/noticiasCreateAndUpdate.html'
     success_url = reverse_lazy('cadNoticias')
-    success_message = "Notícia criada com sucesso! Recarregue a lista para ver."
+    success_message = "Notícia criada com sucesso!"
 
 
 class NoticiasListagem(ListView):
@@ -38,6 +38,17 @@ class NoticiasDelete(DeleteView):
     template_name = 'cadastros/noticiasDelete.html'
     success_url = reverse_lazy('listNoticias')
 
+
+class NoticiasPageList(ListView):
+    model = Noticias
+    template_name = 'noticiasPainel.html'
+
+
+class NoticiasArticleView(DeleteView):
+    model = Noticias
+    template_name = 'noticia.html'
+
+
 # ================ Fotos ================ #
 
 
@@ -46,7 +57,7 @@ class FotosCad(SuccessMessageMixin, CreateView):
     fields = ['titulo', 'imagem', 'legenda', 'categoria']
     template_name = 'cadastros/fotosCreateAndUpdate.html'
     success_url = reverse_lazy('cadFotos')
-    success_message = "Foto publicada com sucesso! Recarregue a lista para ver."
+    success_message = "Foto publicada com sucesso!"
 
 
 class FotosListagem(ListView):
