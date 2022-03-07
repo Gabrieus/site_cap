@@ -1324,6 +1324,10 @@ input:focus {
     margin-bottom: 10px;
 }
 
+.ajuste-conteudo {
+    width: fit-content;
+}
+
 @media only screen and (min-width: 768px) and (max-width: 991px) {
     .single-feature-post.video-post .post-content .post-title {
         font-size: 18px;
