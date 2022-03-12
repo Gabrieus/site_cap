@@ -1,13 +1,14 @@
 from django.urls import path
 from cadastros import views
 from cadastros.views import NoticiasCad, NoticiasDelete, NoticiasUpdate, NoticiasListagem, NoticiasPageList, NoticiasArticleView
+from cadastros.views import PilaresPageView, PilaresPageCreate, PilaresPageUpdate, PilaresPageDelete, PilaresPageList
 from cadastros.views import FotosCad, FotosDelete, FotosUpdate, FotosListagem, FotosPag
 from cadastros.views import ContatoCad, ContatoDelete, ContatoList, ContatoPageList
 from cadastros.views import ContatoPageDelete, ContatoPageView, ContatoPageUpdate, ContatoPageCreate
 from cadastros.views import FotosPageCreate, FotosPageList, FotosPageUpdate, FotosPageDelete, FotosPageView
 
 urlpatterns = [
-    path('', views.abertura_modelform, name='index'),
+    path('index/', views.abertura_modelform, name='index'),
 
     # = Urls notícias = #
     path('cadNoticias/', NoticiasCad.as_view(), name='cadNoticias'),
@@ -16,6 +17,12 @@ urlpatterns = [
     path('delNoticias/<int:pk>', NoticiasDelete.as_view(), name='delNoticias'),
     path('inicio/', NoticiasPageList.as_view(), name='inicio'),
     path('noticia/<int:pk>', views.NoticiasArticleView.as_view(), name='noticia'),
+    # == Pilares == #
+    path('cadPagePilares/', PilaresPageCreate.as_view(), name='cadPagePilares'),
+    path('listPagePilares/', PilaresPageList.as_view(), name='listPagePilares'),
+    path('editPagePilares/<int:pk>', PilaresPageUpdate.as_view(), name='editPagePilares'),
+    path('delPagePilares/<int:pk>', PilaresPageDelete.as_view(), name='delPagePilares'),
+    path('', PilaresPageView.as_view(), name='base'),
 
     # = Urls Fotos/Eventos = #
 

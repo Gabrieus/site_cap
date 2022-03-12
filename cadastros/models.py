@@ -55,7 +55,7 @@ class ContatoPage(models.Model):
                                    null=True, blank=True)
     emailCap = models.EmailField('Email CAP:', default='cap@ufac.br', null=True, blank=True)
     foneCap = models.CharField('Telefone CAP:', max_length=20, default='(68) 99971-3692', null=True, blank=True)
-    mapaCap = models.URLField('Link do Mapa: ',
+    mapaCap = models.TextField('Link do Mapa: ',
                               default='https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15718.196648683606!2d-67.8106109!3d-9.9714163!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x589d3c359dec27ca!2zQ29sw6lnaW8gZGUgQXBsaWNhw6fDo28gZGEgVWZhYw!5e0!3m2!1spt-BR!2sbr!4v1644278509347!5m2!1spt-BR!2sbr',
                               max_length=400)
 
@@ -64,20 +64,23 @@ class ContatoPage(models.Model):
 
 
 class FotosPage(models.Model):
-    tituloOne = models.CharField('Título I:', max_length=40, default='Atividades Escolares e')
-    tituloTwo = models.CharField('Título II:', max_length=40, default='Eventos')
+    titulo_one = models.CharField('Título I:', max_length=40, default='Atividades Escolares e')
+    titulo_two = models.CharField('Título II:', max_length=40, default='Eventos')
     legenda = models.CharField('Legenda:', max_length=200,
                                default='Aqui são postadas as fotos dos nossos eventos e atividades escolares',
                                null=True, blank=True)
 
     def __str__(self):
-        return self.tituloOne
+        return self.titulo_one
 
 
 class Pilares(models.Model):
-    missao = models.TextField('Missão:')
-    visao = models.TextField('Visão:')
-    valores = models.TextField('Valores:')
+    titulo_one = models.CharField('Título I:', max_length=100, blank=True, null=True, default='MISSÃO')
+    pilar_one = models.TextField('Pilar I:', blank=True, null=True)
+    titulo_two = models.CharField('Título II:', max_length=100, blank=True, null=True, default='VISÃO')
+    pilar_two = models.TextField('Pilar II:', blank=True, null=True)
+    titulo_three = models.CharField('Título III:', max_length=100, blank=True, null=True, default='VALORES')
+    pilar_three = models.TextField('Pilar III:', blank=True, null=True)
 
     def __str__(self):
-        return self.missao
+        return self.titulo_one

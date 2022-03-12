@@ -20,9 +20,9 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', TemplateView.as_view(template_name="base.html"), name='index'),
-    path('base/', TemplateView.as_view(template_name="base.html"), name='base'),
+    # path('admin/', admin.site.urls),
+    # path('', TemplateView.as_view(template_name="base.html"), name='index'),
+    # path('base/', TemplateView.as_view(template_name="base.html"), name='base'),
     path('professores/', TemplateView.as_view(template_name="professores.html"), name='professores'),
     path('alunos/', TemplateView.as_view(template_name="alunos.html"), name='alunos'),
     path('gestao/', TemplateView.as_view(template_name="gestao.html"), name='gestao'),

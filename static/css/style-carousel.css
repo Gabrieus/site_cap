@@ -926,7 +926,7 @@ input:focus {
 
 .vizew-nav-tab .nav-link.active {
     background-color: #4d5051;
-    border-left-color: #db4437;
+    border-left-color: #278eff;
 }
 
 .vizew-breadcrumb {
@@ -1376,7 +1376,7 @@ input:focus {
 }
 
 .post-cata {
-    background-color: #db4437;
+    background-color: #278eff;
     padding: 8px 15px 6px;
     border-radius: 2px;
     font-size: 12px;
@@ -1403,7 +1403,7 @@ input:focus {
 
 .post-cata:hover,
 .post-cata:focus {
-    background-color: #8c2019;
+    background-color: #007aff;
     font-size: 12px;
 }
 
@@ -2922,7 +2922,7 @@ textarea.form-control {
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #db4437;
+  background: #278eff;
 }
 
 /*# sourceMappingURL=style.css.map */

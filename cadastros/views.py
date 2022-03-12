@@ -1,6 +1,6 @@
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.list import ListView
-from .models import Noticias, Fotos, ContatoForm, ContatoPage, FotosPage
+from .models import Noticias, Fotos, ContatoForm, ContatoPage, FotosPage, Pilares
 from django.urls import reverse_lazy
 from django.contrib.messages.views import SuccessMessageMixin
 from django.shortcuts import render
@@ -87,7 +87,7 @@ class FotosPag(ListView):
 
 class FotosPageCreate(SuccessMessageMixin, CreateView):
     model = FotosPage
-    fields = ['tituloOne', 'tituloTwo', 'legenda']
+    fields = ['titulo_one', 'titulo_two', 'legenda']
     template_name = 'cadastros/fotosPage_CreateAndUpdate.html'
     success_url = reverse_lazy('listPageFotos')
     success_message = "A página fotos foi atualizada com sucesso!"
@@ -95,7 +95,7 @@ class FotosPageCreate(SuccessMessageMixin, CreateView):
 
 class FotosPageUpdate(UpdateView):
     model = FotosPage
-    fields = ['tituloOne', 'tituloTwo', 'legenda']
+    fields = ['titulo_one', 'titulo_two', 'legenda']
     template_name = 'cadastros/fotosPage_CreateAndUpdate.html'
     success_url = reverse_lazy('listPageFotos')
 
@@ -115,8 +115,8 @@ class FotosPageView(ListView):
     model = FotosPage
     template_name = 'cadastros/fotosPageHeader.html'
 
-# ================ Contato Page ================ #
 
+# ================ Contato Page ================ #
 
 class ContatoPageCreate(SuccessMessageMixin, CreateView):
     model = ContatoPage
@@ -170,3 +170,34 @@ class ContatoDelete(DeleteView):
     success_url = reverse_lazy('listContato')
 
 
+# ================ Pilares ================ #
+
+class PilaresPageCreate(SuccessMessageMixin, CreateView):
+    model = Pilares
+    fields = "__all__"
+    template_name = 'cadastros/pilaresPage_CreateAndUpdate.html'
+    success_url = reverse_lazy('listPagePilares')
+    success_message = "A página foi atualizada com sucesso!"
+
+
+class PilaresPageUpdate(UpdateView):
+    model = Pilares
+    fields = "__all__"
+    template_name = 'cadastros/pilaresPage_CreateAndUpdate.html'
+    success_url = reverse_lazy('listPagePilares')
+
+
+class PilaresPageList(ListView):
+    model = Pilares
+    template_name = 'cadastros/pilaresPage_Read.html'
+
+
+class PilaresPageDelete(DeleteView):
+    model = Pilares
+    template_name = 'cadastros/pilaresPage_Delete.html'
+    success_url = reverse_lazy('listPagePilares')
+
+
+class PilaresPageView(ListView):
+    model = Pilares
+    template_name = 'base.html'

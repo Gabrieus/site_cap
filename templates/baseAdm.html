@@ -83,7 +83,39 @@
         <li class="nav-item">
             <a class="nav-link" href="{% url 'admSite' %}">
                 <i class="bi bi-house-door"></i>
-                <span>Inicio</span></a>
+                <span>Início</span></a>
+        </li>
+
+        <!-- Nav Notícias -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#admNoticias"
+               aria-expanded="true" aria-controls="collapseThree">
+                <i class="fas fa-fw fa-cog"></i>
+                <span>Notícias</span>
+            </a>
+            <div id="admNoticias" class="collapse" aria-labelledby="headingThree" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Administrar:</h6>
+{#                    <a class="collapse-item" href="">Configuração da Página</a>#}
+                    <a class="collapse-item" href="{% url 'listNoticias' %}"> Lista de Notícias</a>
+                    <a class="collapse-item" href="{% url 'cadNoticias' %}">Postar Notícia</a>
+                </div>
+            </div>
+        </li>
+
+        <!-- Nav Pilares -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#admInicio"
+               aria-expanded="true" aria-controls="collapseOne">
+                <i class="fas fa-fw fa-cog"></i>
+                <span>Pilares</span>
+            </a>
+            <div id="admInicio" class="collapse" aria-labelledby="headingOne" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Administrar:</h6>
+                    <a class="collapse-item" href="{% url 'listPagePilares' %}">Configuração da Página</a>
+                </div>
+            </div>
         </li>
 
         <!-- Nav Contato -->
@@ -115,23 +147,6 @@
                     <a class="collapse-item" href="{% url 'listPageFotos' %}">Configuração da Página</a>
                     <a class="collapse-item" href="{% url 'listFotos' %}"> Lista de Fotos</a>
                     <a class="collapse-item" href="{% url 'cadFotos' %}">Postar Fostos</a>
-                </div>
-            </div>
-        </li>
-
-                        <!-- Nav Notícias -->
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#admNoticias"
-               aria-expanded="true" aria-controls="collapseThree">
-                <i class="fas fa-fw fa-cog"></i>
-                <span>Notícias</span>
-            </a>
-            <div id="admNoticias" class="collapse" aria-labelledby="headingThree" data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Administrar:</h6>
-{#                    <a class="collapse-item" href="">Configuração da Página</a>#}
-                    <a class="collapse-item" href="{% url 'listNoticias' %}"> Lista de Notícias</a>
-                    <a class="collapse-item" href="{% url 'cadNoticias' %}">Postar Notícia</a>
                 </div>
             </div>
         </li>

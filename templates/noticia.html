@@ -12,11 +12,11 @@
     <div>
 
         <div class="row bg-dark">
-            <img class="img-noticia col-sm-6 w-25 h-25" src="{{ object.imagem.url }}">
+            <img class="img-noticia" src="{{ object.imagem.url }}">
             <div class="col-sm-6 mt-auto mb-auto ml-4">
                 <h3 class="h3 text-white">{{ object.titulo | title }}</h3>
 {#                <p class="text-white-50">{{ object.legenda }}</p>#}
-                <span class="text-white-50 text-monospace">Publicado em: {{ object.data | date:"d/m/Y" }}</span>
+                <span class="text-white-50 font-italic ml-2">{{ object.data | date:"d/m/Y" }}</span>
             </div>
         </div>
 

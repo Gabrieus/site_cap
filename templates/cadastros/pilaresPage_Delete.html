@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block titulo %}
-    <title>Contato: Excluir Registro</title>
+    <title>Inicio - Pilares: Excluir Registro</title>
 {% endblock %}
 
 {% load crispy_forms_tags %}
@@ -10,19 +10,19 @@
     <br><h3 class="h3 text-black-800">Excluindo Registro</h3>
     <hr>
     <b>Deseja excluir esta configuração?</b>
+
     <hr>
-    <b>Título:</b> {{ object.titulo }}
-    <br><b>Legenda:</b> {{ object.legenda }}
-    <br><b>Endereço:</b> {{ object.enderecoCap }}
-    <br><b>Email:</b> {{ object.emailCap }}
-    <br><b>Telefone:</b> {{ object.foneCap }}
+    <b>Título I:</b> {{ object.titulo_one }}
+    <br><b>Título II:</b> {{ object.titulo_two }}
+    <br><b>Título III:</b> {{ object.titulo_three }}
+
     <form method="POST">
         {% csrf_token %}
         {{ form | crispy }}
         <div>
             <br>
             <button type="submit" class="save btn btn-danger">Confirmar Exclusão</button>
-            <a href="{% url 'listPageContato' %}" class="btn btn-outline-secondary">Cancelar</a>
+            <a href="{% url 'listPagePilares' %}" class="btn btn-outline-secondary">Cancelar</a>
         </div>
     </form>
 
