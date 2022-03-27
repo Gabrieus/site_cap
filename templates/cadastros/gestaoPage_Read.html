@@ -17,7 +17,7 @@
     <hr>
     {% if gestaopage_list.count == 0 %}
         <div class="alert alert-warning alert-dismissible fade show" role="alert">
-            • Há 0 registros, a página <b>Gestão</b>. Você pode <a href="{% url 'cadPageGestao' %}">Cadastrar um Gestor</a>.
+            • Há 0 registros de <b>Gestores</b>. Você pode <a href="{% url 'cadPageGestao' %}">Cadastrar um Gestor</a>.
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -27,7 +27,7 @@
     <!-- Fim dos alertas -->
 
     <table class="table table-striped" id="tabela-gestao">
-        <thead><p>Registros da Página <a href={% url 'gestao' %}>Gestão</a>:</p></thead>
+        <thead><p>Gestores cadastrados na Página <a href={% url 'gestao' %}>Gestão</a>:</p></thead>
         <tbody>
 
         {% for item in gestaopage_list %}

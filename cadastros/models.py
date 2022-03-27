@@ -104,7 +104,7 @@ class GestaoPage(models.Model):
     face = models.URLField('Facebook:', default='https://www.facebook.com')
     insta = models.URLField('Instagram:', default='https://www.instagram.com')
     linkedin = models.URLField('Linkedin:', default='https://www.linkedin.com')
-    imagem = models.ImageField('Foto:', upload_to='gestores')
+    imagem = models.ImageField('Foto:', upload_to='gestores', default='gestores/gestor_default.png', null=True, blank=True, editable=True)
 
     def __str__(self):
         return self.nome
