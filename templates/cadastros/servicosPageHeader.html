@@ -1,0 +1,22 @@
+{% include 'css-js.html' %}
+
+{% for item in servicospage_list %}
+
+    <div class="section-title">
+        <h2>SERVIÇOS</h2>
+
+        <h3>{{ item.titulo_one }} <span>{{ item.titulo_two }}</span></h3>
+        <p>{{ item.legenda }}</p>
+    </div>
+
+{% empty %}
+
+    <div class="section-title">
+        <h2>SERVIÇOS</h2>
+
+        <h3>Alguns dos nossos <span>Serviços</span></h3>
+        <p>Relação de alguns dos nossos serviços que você aluno(a) pode solicitar online.</p>
+
+    </div>
+
+{% endfor %}

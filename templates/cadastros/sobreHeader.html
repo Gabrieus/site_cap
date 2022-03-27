@@ -1,0 +1,22 @@
+{% include 'css-js.html' %}
+
+{% for item in sobreheader_list %}
+
+    <div class="section-title">
+        <h2>SOBRE</h2>
+
+        <h3>{{ item.titulo_one }} <span>{{ item.titulo_two }}</span></h3>
+        <p>{{ item.legenda }}</p>
+    </div>
+
+{% empty %}
+
+    <div class="section-title">
+        <h2>SOBRE</h2>
+
+        <h3>Saiba mais sobre <span>nosso colégio</span></h3>
+        <p>Aqui vamos começar a contar um pouco dos nossos 40 anos!</p>
+
+    </div>
+
+{% endfor %}

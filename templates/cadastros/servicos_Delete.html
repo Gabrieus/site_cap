@@ -2,25 +2,24 @@
 {% load static %}
 
 {% block titulo %}
-    <title>Fotos/Eventos: Excluir Registro</title>
+    <title>Serviços: Excluir Card</title>
 {% endblock %}
 
 {% load crispy_forms_tags %}
 {% block conteudo %}
     <br><h3 class="h3 text-black-800">Excluindo Registro</h3>
     <hr>
-    <b>Deseja excluir esta configuração?</b>
+    <b>Deseja excluir este card de serviço?</b>
     <hr>
-    <b>Título I:</b> {{ object.titulo_one }}
-    <br><b>Título II:</b> {{ object.titulo_two }}
-    <br><b>Legenda:</b> {{ object.legenda }}
+    <b>Serviço:</b> {{ object.servico }}
+    <br><b>Descrição:</b> {{ object.descricao }}
     <form method="POST">
         {% csrf_token %}
         {{ form | crispy }}
         <div>
             <br>
             <button type="submit" class="save btn btn-danger">Confirmar Exclusão</button>
-            <a href="{% url 'listPageFotos' %}" class="btn btn-outline-secondary">Cancelar</a>
+            <a href="{% url 'listServicos' %}" class="btn btn-outline-secondary">Cancelar</a>
         </div>
     </form>
 

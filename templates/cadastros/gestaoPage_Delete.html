@@ -1,0 +1,31 @@
+{% extends 'baseAdm.html' %}
+{% load static %}
+
+    {% block titulo %}
+    <title>Gestão: Excluir Registro</title>
+    {% endblock %}
+
+    {% load crispy_forms_tags %}
+    {% block conteudo %}
+        <br><h3 class="h3 text-black-800">Excluindo Registro</h3>
+        <hr>
+        <b>Deseja excluir esta configuração?</b>
+        <p>Atenção! - Lembre-se de deixar ao menos um registro cadastrado para que a página Contatos seja exibida corretamente.</p>
+        <hr>
+        <b>Nome:</b> {{ object.nome }}
+        <br><b>Cargo:</b> {{ object.cargo }}
+        <br><b>Twitter:</b> {{ object.twitter }}
+        <br><b>Facebook:</b> {{ object.face }}
+        <br><b>Instagram:</b> {{ object.insta }}
+        <br><b>Linkedin:</b> {{ object.linkedin }}
+        <br><b>Foto:</b> {{ object.imagem }}
+        <form method="POST">
+            {% csrf_token %}
+            {{ form | crispy }}
+        <div>
+            <br><button type="submit" class="save btn btn-danger">Confirmar Exclusão</button>
+            <a href="{%  url 'listPageGestao' %}" class="btn btn-outline-secondary">Cancelar</a>
+        </div>
+        </form>
+
+    {% endblock %}

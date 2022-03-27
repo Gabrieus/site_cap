@@ -1,0 +1,46 @@
+{% extends 'baseAdm.html' %}
+{% load static %}
+
+<!-- Template Main CSS File -->
+<link href="{% static '/css/style.css' %}" rel="stylesheet">
+
+{% block titulo %}
+    <title>Serviços: Cadastro e Edição</title>
+{% endblock %}
+
+{% load crispy_forms_tags %}
+
+{% block conteudo %}
+
+    {% if object.pk %}
+        <br><h3 class="h3 text-black-800">Editando Card</h3>
+        <hr>
+    {% else %}
+        <br><h3 class="h3 text-black-800">Cadastrando Card</h3>
+        <hr>
+    {% endif %}
+
+    <ul>
+    <h5>Instruções</h5>
+    <li>Os ícones estão disponíveis em: <a href="https://boxicons.com/" target="_blank">boxicons.com</a></li>
+    <li>O cógido dos ícones deve ser o da opção "Font", disponível no site acima. O texto padrão mostra o modelo do cógido.</li>
+    </ul>
+    <hr>
+    <form method="POST" enctype="multipart/form-data" action="">
+        {% csrf_token %}
+        {{ form | crispy }}
+        <div class="text-right">
+
+            {% if object.pk %}
+                <button type="submit" class="save btn btn-warning">Salvar Edição</button>
+                <a href="{% url 'listServicos' %}" class="btn btn-outline-secondary">Cancelar</a>
+            {% else %}
+                <button type="submit" class="save btn btn-success">Salvar Cadastro</button>
+            {% endif %}
+
+        </div>
+    </form>
+
+    {% include 'cadastros/menssagens.html' %}
+
+{% endblock %}

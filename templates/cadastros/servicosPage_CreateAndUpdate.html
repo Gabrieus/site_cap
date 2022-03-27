@@ -1,0 +1,40 @@
+{% extends 'baseAdm.html' %}
+{% load static %}
+
+<!-- Template Main CSS File -->
+<link href="{% static '/css/style.css' %}" rel="stylesheet">
+
+{% block titulo %}
+    <title>Serviços: Cadastro e Edição</title>
+{% endblock %}
+
+{% load crispy_forms_tags %}
+
+{% block conteudo %}
+
+    {% if object.pk %}
+        <br><h3 class="h3 text-black-800">Editando a Página Serviços</h3>
+        <hr>
+    {% else %}
+        <br><h3 class="h3 text-black-800">Cadastrando a Página Serviços</h3>
+        <hr>
+    {% endif %}
+
+    <form method="POST" enctype="multipart/form-data" action="">
+        {% csrf_token %}
+        {{ form | crispy }}
+        <div class="text-right">
+
+            {% if object.pk %}
+                <button type="submit" class="save btn btn-warning">Salvar Edição</button>
+                <a href="{% url 'listPageServicos' %}" class="btn btn-outline-secondary">Cancelar</a>
+            {% else %}
+                <button type="submit" class="save btn btn-success">Salvar Cadastro</button>
+            {% endif %}
+
+        </div>
+    </form>
+
+    {% include 'cadastros/menssagens.html' %}
+
+{% endblock %}

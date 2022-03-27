@@ -1,6 +1,7 @@
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.list import ListView
-from .models import Noticias, Fotos, ContatoForm, ContatoPage, FotosPage, Pilares
+from .models import Noticias, Fotos, ContatoForm, ContatoPage, FotosPage, Pilares, GestaoPage, ServicosPage, \
+    Servicos, GestaoHeader, SobreHeader, SobrePage
 from django.urls import reverse_lazy
 from django.contrib.messages.views import SuccessMessageMixin
 from django.shortcuts import render
@@ -201,3 +202,201 @@ class PilaresPageDelete(DeleteView):
 class PilaresPageView(ListView):
     model = Pilares
     template_name = 'base.html'
+
+
+# ================ Gestão ================ #
+
+class GestaoPageCreate(SuccessMessageMixin, CreateView):
+    model = GestaoPage
+    fields = ['nome', 'cargo', 'twitter', 'face', 'insta', 'linkedin', 'imagem']
+    template_name = 'cadastros/gestaoPage_CreateAndUpdate.html'
+    success_url = reverse_lazy('listPageGestao')
+    success_message = "A página Gestão foi atualizada com sucesso!"
+
+
+class GestaoPageUpdate(UpdateView):
+    model = GestaoPage
+    fields = ['nome', 'cargo', 'twitter', 'face', 'insta', 'linkedin', 'imagem']
+    template_name = 'cadastros/gestaoPage_CreateAndUpdate.html'
+    success_url = reverse_lazy('listPageGestao')
+
+
+class GestaoPageList(ListView):
+    model = GestaoPage
+    template_name = 'cadastros/gestaoPage_Read.html'
+
+
+class GestaoPageDelete(DeleteView):
+    model = GestaoPage
+    template_name = 'cadastros/gestaoPage_Delete.html'
+    success_url = reverse_lazy('listPageGestao')
+
+
+class GestaoPageView(ListView):
+    model = GestaoPage
+    template_name = 'gestao.html'
+
+
+# ================ Gestão Header ================ #
+
+class GestaoHeaderCreate(SuccessMessageMixin, CreateView):
+    model = GestaoHeader
+    fields = ['titulo_one', 'titulo_two', 'legenda']
+    template_name = 'cadastros/gestaoHeader_CreateAndUpdate.html'
+    success_url = reverse_lazy('listGestaoHeader')
+    success_message = "A página Gestão foi atualizada com sucesso!"
+
+
+class GestaoHeaderUpdate(UpdateView):
+    model = GestaoHeader
+    fields = ['titulo_one', 'titulo_two', 'legenda']
+    template_name = 'cadastros/gestaoHeader_CreateAndUpdate.html'
+    success_url = reverse_lazy('listGestaoHeader')
+
+
+class GestaoHeaderList(ListView):
+    model = GestaoHeader
+    template_name = 'cadastros/gestaoHeader_Read.html'
+
+
+class GestaoHeaderDelete(DeleteView):
+    model = GestaoHeader
+    template_name = 'cadastros/gestaoHeader_Delete.html'
+    success_url = reverse_lazy('listGestaoHeader')
+
+
+class GestaoHeaderView(ListView):
+    model = GestaoHeader
+    template_name = 'cadastros/gestaoHeader.html'
+
+
+# ================ Serviços Page ================ #
+
+class ServicosPageCreate(SuccessMessageMixin, CreateView):
+    model = ServicosPage
+    fields = ['titulo_one', 'titulo_two', 'legenda']
+    template_name = 'cadastros/servicosPage_CreateAndUpdate.html'
+    success_url = reverse_lazy('listPageServicos')
+    success_message = "A página serviços foi atualizada com sucesso!"
+
+
+class ServicosPageUpdate(UpdateView):
+    model = ServicosPage
+    fields = ['titulo_one', 'titulo_two', 'legenda']
+    template_name = 'cadastros/servicosPage_CreateAndUpdate.html'
+    success_url = reverse_lazy('listPageServicos')
+
+
+class ServicosPageList(ListView):
+    model = ServicosPage
+    template_name = 'cadastros/servicosPage_Read.html'
+
+
+class ServicosPageDelete(DeleteView):
+    model = ServicosPage
+    template_name = 'cadastros/servicosPage_Delete.html'
+    success_url = reverse_lazy('listPageServicos')
+
+
+class ServicosPageView(ListView):
+    model = ServicosPage
+    template_name = 'cadastros/servicosPageHeader.html'
+
+
+# ================ Serviços Cards ================ #
+
+class ServicosCreate(SuccessMessageMixin, CreateView):
+    model = Servicos
+    fields = ['servico', 'descricao', 'icone', 'link']
+    template_name = 'cadastros/servicos_CreateAndUpdate.html'
+    success_url = reverse_lazy('listServicos')
+    success_message = "A página serviços foi atualizada com sucesso!"
+
+
+class ServicosUpdate(UpdateView):
+    model = Servicos
+    fields = ['servico', 'descricao', 'icone', 'link']
+    template_name = 'cadastros/servicos_CreateAndUpdate.html'
+    success_url = reverse_lazy('listServicos')
+
+
+class ServicosList(ListView):
+    model = Servicos
+    template_name = 'cadastros/servicos_Read.html'
+
+
+class ServicosDelete(DeleteView):
+    model = Servicos
+    template_name = 'cadastros/servicos_Delete.html'
+    success_url = reverse_lazy('listServicos')
+
+
+class ServicosPage(ListView):
+    model = Servicos
+    template_name = 'servicos.html'
+
+
+# ================ Sobre Header ================ #
+
+class SobreHeaderCreate(SuccessMessageMixin, CreateView):
+    model = SobreHeader
+    fields = ['titulo_one', 'titulo_two', 'legenda']
+    template_name = 'cadastros/sobreHeader_CreateAndUpdate.html'
+    success_url = reverse_lazy('listSobreHeader')
+    success_message = "A página Sobre foi atualizada com sucesso!"
+
+
+class SobreHeaderUpdate(UpdateView):
+    model = SobreHeader
+    fields = ['titulo_one', 'titulo_two', 'legenda']
+    template_name = 'cadastros/sobreHeader_CreateAndUpdate.html'
+    success_url = reverse_lazy('listSobreHeader')
+
+
+class SobreHeaderList(ListView):
+    model = SobreHeader
+    template_name = 'cadastros/sobreHeader_Read.html'
+
+
+class SobreHeaderDelete(DeleteView):
+    model = SobreHeader
+    template_name = 'cadastros/sobreHeader_Delete.html'
+    success_url = reverse_lazy('listSobreHeader')
+
+
+class SobreHeaderView(ListView):
+    model = SobreHeader
+    template_name = 'cadastros/sobreHeader.html'
+
+
+# ================ Sobre Page ================ #
+
+class SobrePageCreate(SuccessMessageMixin, CreateView):
+    model = SobrePage
+    fields = ['titulo', 'subtitulo', 'texto', 'imagem']
+    template_name = 'cadastros/sobrePage_CreateAndUpdate.html'
+    success_url = reverse_lazy('listSobrePage')
+    success_message = "A página Sobre foi atualizada com sucesso!"
+
+
+class SobrePageUpdate(UpdateView):
+    model = SobrePage
+    fields = ['titulo', 'subtitulo', 'texto', 'imagem']
+    template_name = 'cadastros/sobrePage_CreateAndUpdate.html'
+    success_url = reverse_lazy('listSobrePage')
+
+
+class SobrePageList(ListView):
+    model = SobrePage
+    template_name = 'cadastros/sobrePage_Read.html'
+
+
+class SobrePageDelete(DeleteView):
+    model = SobrePage
+    template_name = 'cadastros/sobrePage_Delete.html'
+    success_url = reverse_lazy('listSobrePage')
+
+
+class SobrePageView(ListView):
+    model = SobrePage
+    template_name = 'sobre.html'

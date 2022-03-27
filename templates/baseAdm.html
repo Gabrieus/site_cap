@@ -86,37 +86,37 @@
                 <span>Início</span></a>
         </li>
 
-        <!-- Nav Notícias -->
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#admNoticias"
-               aria-expanded="true" aria-controls="collapseThree">
-                <i class="fas fa-fw fa-cog"></i>
-                <span>Notícias</span>
-            </a>
-            <div id="admNoticias" class="collapse" aria-labelledby="headingThree" data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Administrar:</h6>
+{#        <!-- Nav Notícias -->#}
+{#        <li class="nav-item">#}
+{#            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#admNoticias"#}
+{#               aria-expanded="true" aria-controls="collapseThree">#}
+{#                <i class="fas fa-fw fa-cog"></i>#}
+{#                <span>Notícias</span>#}
+{#            </a>#}
+{#            <div id="admNoticias" class="collapse" aria-labelledby="headingThree" data-parent="#accordionSidebar">#}
+{#                <div class="bg-white py-2 collapse-inner rounded">#}
+{#                    <h6 class="collapse-header">Administrar:</h6>#}
 {#                    <a class="collapse-item" href="">Configuração da Página</a>#}
-                    <a class="collapse-item" href="{% url 'listNoticias' %}"> Lista de Notícias</a>
-                    <a class="collapse-item" href="{% url 'cadNoticias' %}">Postar Notícia</a>
-                </div>
-            </div>
-        </li>
+{#                    <a class="collapse-item" href="{% url 'listNoticias' %}"> Lista de Notícias</a>#}
+{#                    <a class="collapse-item" href="{% url 'cadNoticias' %}">Postar Notícia</a>#}
+{#                </div>#}
+{#            </div>#}
+{#        </li>#}
 
-        <!-- Nav Pilares -->
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#admInicio"
-               aria-expanded="true" aria-controls="collapseOne">
-                <i class="fas fa-fw fa-cog"></i>
-                <span>Pilares</span>
-            </a>
-            <div id="admInicio" class="collapse" aria-labelledby="headingOne" data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Administrar:</h6>
-                    <a class="collapse-item" href="{% url 'listPagePilares' %}">Configuração da Página</a>
-                </div>
-            </div>
-        </li>
+{#        <!-- Nav Pilares -->#}
+{#        <li class="nav-item">#}
+{#            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#admInicio"#}
+{#               aria-expanded="true" aria-controls="collapseOne">#}
+{#                <i class="fas fa-fw fa-cog"></i>#}
+{#                <span>Pilares</span>#}
+{#            </a>#}
+{#            <div id="admInicio" class="collapse" aria-labelledby="headingOne" data-parent="#accordionSidebar">#}
+{#                <div class="bg-white py-2 collapse-inner rounded">#}
+{#                    <h6 class="collapse-header">Administrar:</h6>#}
+{#                    <a class="collapse-item" href="{% url 'listPagePilares' %}">Configurar Página</a>#}
+{#                </div>#}
+{#            </div>#}
+{#        </li>#}
 
         <!-- Nav Contato -->
         <li class="nav-item">
@@ -128,7 +128,7 @@
             <div id="admContato" class="collapse" aria-labelledby="headingOne" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Administrar:</h6>
-                    <a class="collapse-item" href="{% url 'listPageContato' %}">Configuração da Página</a>
+                    <a class="collapse-item" href="{% url 'listPageContato' %}">Configurar Página</a>
                     <a class="collapse-item" href="{% url 'listContato' %}">Mensagens</a>
                 </div>
             </div>
@@ -144,19 +144,62 @@
             <div id="admFotos" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Administrar:</h6>
-                    <a class="collapse-item" href="{% url 'listPageFotos' %}">Configuração da Página</a>
+                    <a class="collapse-item" href="{% url 'listPageFotos' %}">Configurar Página</a>
                     <a class="collapse-item" href="{% url 'listFotos' %}"> Lista de Fotos</a>
-                    <a class="collapse-item" href="{% url 'cadFotos' %}">Postar Fostos</a>
+                    <a class="collapse-item" href="{% url 'cadFotos' %}">Postar Fotos</a>
                 </div>
             </div>
         </li>
 
-        {#            <li class="nav-item">#}
-        {#                <a class="nav-link" href="{% url 'contato' %}">#}
-        {#                    <i class="bi bi-envelope"></i>#}
-        {#                    <span>Contato</span>#}
-        {#                    <i class="bi bi-check-circle-fill" style="color: #17a673"> 100%</i></a>#}
-        {#            </li>#}
+        <!-- Nav Serviços -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#admServicos"
+               aria-expanded="true" aria-controls="collapseTwo">
+                <i class="fas fa-fw fa-cog"></i>
+                <span>Serviços</span>
+            </a>
+            <div id="admServicos" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Administrar:</h6>
+                    <a class="collapse-item" href="{% url 'listPageServicos' %}">Configurar Página</a>
+                    <a class="collapse-item" href="{% url 'cadServicos' %}">Cadastrar Serviço</a>
+                    <a class="collapse-item" href="{% url 'listServicos' %}">Lista de Serviços</a>
+                </div>
+            </div>
+        </li>
+
+        <!-- Nav Gestão -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#admGestao"
+               aria-expanded="true" aria-controls="collapseTwo">
+                <i class="fas fa-fw fa-cog"></i>
+                <span>Gestão</span>
+            </a>
+            <div id="admGestao" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Administrar:</h6>
+                    <a class="collapse-item" href="{% url 'listGestaoHeader' %}">Configurar Página</a>
+                    <a class="collapse-item" href="{% url 'listPageGestao' %}">Lista de Gestores</a>
+                    <a class="collapse-item" href="{% url 'cadPageGestao' %}">Cadastrar um Gestor</a>
+                </div>
+            </div>
+        </li>
+
+        <!-- Nav Sobre -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#admSobre"
+               aria-expanded="true" aria-controls="collapseTwo">
+                <i class="fas fa-fw fa-cog"></i>
+                <span>Sobre</span>
+            </a>
+            <div id="admSobre" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Administrar:</h6>
+                    <a class="collapse-item" href="{% url 'listSobrePage' %}">Configurar Página</a>
+                    <a class="collapse-item" href="{% url 'listSobreHeader' %}">Configurar Cabeçalho</a>
+                </div>
+            </div>
+        </li>
 
         <!-- Divider -->
         <hr class="sidebar-divider bg-white border-0">

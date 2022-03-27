@@ -1,0 +1,27 @@
+{% extends 'baseAdm.html' %}
+{% load static %}
+
+    {% block titulo %}
+    <title>Sobre: Excluir Registro</title>
+    {% endblock %}
+
+    {% load crispy_forms_tags %}
+    {% block conteudo %}
+        <br><h3 class="h3 text-black-800">Excluindo Registro</h3>
+        <hr>
+        <b>Deseja excluir esta configuração?</b>
+        <hr>
+        <b>Título:</b> {{ object.titulo }}
+        <br><b>Subtitulo:</b> {{ object.subtitulo }}
+        <br><b>Texto:</b> {{ object.texto }}
+        <br><b>Imagem:</b> {{ object.imagem }}
+        <form method="POST">
+            {% csrf_token %}
+            {{ form | crispy }}
+        <div>
+            <br><button type="submit" class="save btn btn-danger">Confirmar Exclusão</button>
+            <a href="{%  url 'listSobrePage' %}" class="btn btn-outline-secondary">Cancelar</a>
+        </div>
+        </form>
+
+    {% endblock %}

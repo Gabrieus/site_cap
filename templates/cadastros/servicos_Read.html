@@ -1,0 +1,91 @@
+<!-- Author: Gabriel Martins -->
+
+{% extends 'baseAdm.html' %}
+{% load static %}
+
+{% block titulo %}
+    <title>Serviços: Lista de Cards</title>
+{% endblock %}
+
+
+{% block conteudo %}
+
+    <br>
+    <h3 class="h3 text-black-800">Lista de Cards</h3>
+    <hr>
+    <p>Cards de informação apresentados na página Serviços do site.</p>
+    <hr>
+    <table class="table table-striped" id="tabela-fotos">
+        <thead>
+        <tr>
+            <th>Serviço</th>
+            <th>Descrição</th>
+            <th>Ícone</th>
+            <th>Editar/Excluir</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        {% for item in object_list %}
+
+            <tr>
+                <td>{{ item.servico }}</td>
+                <td>{{ item.descricao| truncatechars:50 }}</td>
+                <td>{{ item.icone | safe }}</td>
+                <td><a href="{% url 'editServicos' item.pk %}" class="btn btn-warning" title="Editar"><i class="fas fa-edit"
+                                                                                       style="color: white;"></i></a>
+                    <a href="{% url 'delServicos' item.pk %}" class="btn btn-danger" title="Excluir"><i class="fa fa-trash"></i></a></td>
+            </tr>
+
+        {% empty %}
+
+            Nada foi registrado
+
+        {% endfor %}
+
+        </tbody>
+    </table>
+
+    <script>
+
+        $(document).ready(function () {
+            $('#tabela-fotos').DataTable(
+                {
+                    responsive: true,
+                    "lengthChange": false,
+                    // "bSort": false,
+                    "aaSorting": [],
+                    "pageLength": 10,
+                    "language":
+                        {
+                            "decimal": "",
+                            "emptyTable": "Sem dados disponíveis",
+                            "info": "Mostrando de _START_ até _END_ de _TOTAL_ registos",
+                            "infoEmpty": "Mostrando de 0 até 0 de 0 registos",
+                            "infoFiltered": "(filtrado de _MAX_ registos no total)",
+                            "infoPostFix": "",
+                            "thousands": ",",
+                            "lengthMenu": "Mostrar: _MENU_",
+                            "loadingRecords": "Carregando dados...",
+                            "processing": "Processando...",
+                            "search": "Procurar:",
+                            "zeroRecords": "Não foram encontrados resultados",
+                            "paginate":
+                                {
+                                    "first": "Primeiro",
+                                    "last": "Último",
+                                    "next": "Seguinte",
+                                    "previous": "Anterior"
+                                },
+                            "aria":
+                                {
+                                    "sortAscending": ": Ordem crescente",
+                                    "sortDescending": ": Ordem decrescente"
+                                }
+                        }
+                })
+        });
+
+    </script>
+
+{% endblock %}

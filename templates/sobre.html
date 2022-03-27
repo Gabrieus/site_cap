@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+    {% block titulo %}
+    <title>Sobre</title>
+    {% endblock %}
+
+
+        {% block conteudo %}
+
+    <!-- ======= Início Sobre ======= -->
+
+    <section id="about" class="about section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <iframe src="{% url 'sobreHeader' %}" width="100%" height="200px"></iframe>
+
+        <div class="row">
+        {% for item in sobrepage_list %}
+          <div class="col-lg-6" data-aos="fade-right" data-aos-delay="100">
+            <img src="{{ item.imagem.url }}" class="img-fluid" alt="">
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0 content d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="100">
+
+            <!-- Título -->
+            <h3>{{ item.titulo }}</h3>
+            <!-- Subtítulo -->
+            <p class="fst-italic">
+              {{ item.subtitulo }}
+            </p>
+            <!-- Texto -->
+            <p>
+              {{ item.texto }}
+            </p>
+          </div>
+        {% empty %}
+          <div class="col-lg-6" data-aos="fade-right" data-aos-delay="100">
+            <img src="/uploads/pages/sobre_default.jpg" class="img-fluid" alt="Imagem dos Gestores da página Sobre">
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0 content d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="100">
+
+            <!-- Título -->
+            <h3>Histórico do Colégio de Aplicação da Ufac</h3>
+            <!-- Subtítulo -->
+            <p class="fst-italic">
+              Aqui são "retalhos" do nosso Projeto Político-Pedagógico - 2013–2016
+            </p>
+            <!-- Texto -->
+            <p>
+              No Brasil, os Colégios de Aplicação oferecem diversas modalidades de ensino – da Pré-Escola à Pós-Graduação. A estrutura administrativa é diferente e pode variar de universidade para universidade, enquanto que a pedagógica é bastante parecida, pois todos têm como base as inovações pedagógicas e o atendimento aos estagiários dos cursos de licenciatura das universidades às quais estão vinculados, contribuindo com a formação inicial e continuada de professores das redes básicas – a partir de projetos e parcerias institucionais. O Colégio de Aplicação da Universidade Federal do Acre nasceu da preocupação da instituição como entidade participante, criativa e cooperadora na solução de problemas do desenvolvimento da região e, acima de tudo, pelo fato de ter detectado dificuldades e limitações na formação de profissionais. Realizadas as devidas apreciações e análise do processo, após os trâmites legais, o Conselho de Ensino, Pesquisa e Extensão aprova a criação do Colégio de Aplicação, por meio da Resolução n.º 02, de 14 de dezembro de 1981, encaminhada ao Conselho Universitário, o qual, por meio da Resolução n.º 22, de 11 de dezembro de 1981, autoriza a criação e implantação do Colégio de Aplicação. O reconhecimento se daria a partir da Portaria MEC n.º36, de 25 de novembro de 1985.
+            </p>
+          </div>
+        {% endfor %}
+        </div>
+
+      </div>
+    </section>
+
+<!-- Fim Sobre -->
+
+        {% endblock %}

@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block titulo %}
-    <title>Fotos/Eventos: Excluir Registro</title>
+    <title>Gestão: Excluir Registro</title>
 {% endblock %}
 
 {% load crispy_forms_tags %}
@@ -20,7 +20,7 @@
         <div>
             <br>
             <button type="submit" class="save btn btn-danger">Confirmar Exclusão</button>
-            <a href="{% url 'listPageFotos' %}" class="btn btn-outline-secondary">Cancelar</a>
+            <a href="{% url 'listSobreHeader' %}" class="btn btn-outline-secondary">Cancelar</a>
         </div>
     </form>
 

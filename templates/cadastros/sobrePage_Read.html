@@ -1,0 +1,88 @@
+{% extends 'baseAdm.html' %}
+{% load static %}
+
+{% block titulo %}
+    <title>Sobre: Configuração</title>
+{% endblock %}
+
+{% block conteudo %}
+
+    <br><h3 class="h3 text-black-800">Configuração da Página</h3>
+    <hr>
+
+    <ul><h5>Instruções:</h5>
+        <li>Editar os campos do registro abaixo modificará seus respectivos textos na página Sobre do site.</li>
+    </ul>
+
+    <!-- Alertas sobre o funcionamento da página -->
+    <div name="alertas">
+    <hr>
+    {% if sobrepage_list.count > 1 %}
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            • Há {{ servicospage_list.count }} registro(s), para que a página <b>Sobre</b> funcione corretamente, deve haver apenas um.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    {% endif %}
+    {% if sobrepage_list.count == 1 %}
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            • Há 1 registro, a página <b>Sobre</b> funcionará corretamente.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    {% endif %}
+    {% if sobrepage_list.count == 0 %}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            • Há 0 registros, a página <b>Sobre</b> funcionará com informações padrão. Para ter acesso à edição, realize um <a href="{% url 'cadSobrePage' %}">Cadastro</a>.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    {% endif %}
+    </div>
+    <!-- Fim dos alertas -->
+
+     <!-- Tabela de dados da página -->
+    <table class="table table-striped table-responsive-sm" id="tabela-servicos">
+        <thead><p>Registros da Página <a href={% url 'sobre' %}>Sobre</a>:</p></thead>
+        <tbody>
+
+        {% for i in sobrepage_list %}
+
+        <tr>
+            <td><strong>Título:</strong></td>
+                <td>{{i.titulo}}</td>
+        </tr>
+
+        <tr>
+            <td><strong>Subtítulo:</strong></td>
+                <td>{{i.subtitulo}}</td>
+        </tr>
+
+        <tr>
+            <td><strong>Texto:</strong></td>
+                <td>{{i.texto | truncatewords:30 }}</td>
+        </tr>
+
+        <tr>
+            <td><strong>Imagem:</strong></td>
+                <td><a href="{{ i.imagem.url }}" data-gallery="portfolioGallery"
+                       class="portfolio-lightbox preview-link" title="{{ i.titulo }}"><i class="fa fa-image"></i> Ver
+                        imagem</a></td>
+        </tr>
+
+        <tr style="text-align: center;" ><td colspan="2">
+        <a href="{% url 'editSobrePage' i.pk %}" class="btn btn-warning mr-4"><i class="fas fa-edit"></i> Editar</a>
+        <a href="{% url 'delSobrePage' i.pk %}" class="btn btn-danger"><i class="fas fa-exclamation-triangle"></i> Excluir</a>
+        </td>
+        </tr>
+
+
+        {% endfor %}
+    </tbody>
+    </table>
+    <!-- Fim da tabela de dados da página -->
+
+{% endblock %}
