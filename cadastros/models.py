@@ -125,7 +125,7 @@ class Servicos(models.Model):
     servico = models.CharField('Serviço:', max_length=100)
     descricao = models.TextField('Descrição:')
     icone = models.CharField('Ícone:', max_length=300, default='<i class="bx bx-file"></i>')
-    link = models.URLField('URL:', default='')
+    link = models.URLField('URL:', default='', null=True, blank=True)
 
     def __str__(self):
         return self.servico
