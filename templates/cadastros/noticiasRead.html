@@ -58,7 +58,7 @@
                                     </button>
                                 </div>
                                 <div class="modal-body" style="overflow-wrap: break-word">
-                                    {{ item.texto }}
+                                    {{ item.texto | safe }}
                                 </div>
                                 <div class="modal-footer">
                                     <a href="{% url 'editNoticias' item.pk %}" class="btn btn-warning">Editar</a>
